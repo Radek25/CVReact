@@ -5,6 +5,7 @@ export const NavBarWrapper = styled.div`
     width: 100vw;
     height: 50px;
     padding: 5px 50px;
+    position: fixed;
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;

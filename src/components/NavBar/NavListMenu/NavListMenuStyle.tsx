@@ -1,22 +1,17 @@
 import styled from 'styled-components'
 import { colors } from '../../../styledHelpers/colors'
 
-interface IContentID{
+interface ISetContentID{
     contentId: number;
 }
 
-export const NavListMenuWrapper = styled.div<IContentID>`
-    ul{
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
+export const NavListMenuWrapper = styled.div<ISetContentID>`
         display: flex;
         justify-content: space-between;
         align-items: center;
-    }
-    li{
+    .link{
         font-family: 'Roboto', sans-serif;
+        font-size: 14px;
         letter-spacing: 1px;
         display: block;
         color: #b4b4b47a;
@@ -25,11 +20,8 @@ export const NavListMenuWrapper = styled.div<IContentID>`
         text-decoration: none;
         padding-bottom: 2px;
     }
-    li:nth-child(${props => props.contentId}){
+    .link:nth-child(${props => props.contentId}){
         color: ${colors.mainFontColor};
         border-bottom: 1.5px solid ${colors.mainYellowColor};
-    }
-    li:hover{
-        cursor: pointer;
     }
 `;
