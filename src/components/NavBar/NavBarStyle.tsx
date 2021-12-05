@@ -11,6 +11,7 @@ export const NavBarWrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     background-color: ${colors.navbarBackgroundColor};
+    z-index: 1000;
 `;
 export const NavBarLeftSideContainer = styled.div`
     display: flex;
