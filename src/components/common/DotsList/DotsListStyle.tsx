@@ -1,11 +1,7 @@
 import styled from "styled-components";
 import { colors } from './../../../styledHelpers/colors';
 
-interface IOptionID{
-    navOptionID : number;
-}
-
-export const DotsListWrapper = styled.div<IOptionID>`
+export const DotsListWrapper = styled.div`
     position: fixed;
     top: 40%;
     right: 20px;
@@ -27,10 +23,17 @@ export const DotsListWrapper = styled.div<IOptionID>`
     border-radius: 100%;
     background-color: #ffffff28;
     }
-    li:nth-child(${(props) => props.navOptionID}):before{
+    .active > li:before{
+        content: ' ';
+        width: 10px;
+        height: 10px;
+        margin: 10px 0;
+        display: inline-block;
+        border-radius: 100%;
         background-color: ${colors.mainFontColor} !important;
-        animation: scale-in-center 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: scale-in-center 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     }
+
     @keyframes scale-in-center {
     0% {
         transform: scale(0);

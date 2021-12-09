@@ -1,11 +1,7 @@
 import styled from 'styled-components'
 import { colors } from '../../../styledHelpers/colors'
 
-interface ISetContentID{
-    contentId: number;
-}
-
-export const NavListMenuWrapper = styled.div<ISetContentID>`
+export const NavListMenuWrapper = styled.div`
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -19,8 +15,9 @@ export const NavListMenuWrapper = styled.div<ISetContentID>`
         margin: 10px 25px;
         text-decoration: none;
         padding-bottom: 2px;
+        cursor: pointer;
     }
-    .link:nth-child(${props => props.contentId}){
+    .active{
         color: ${colors.mainFontColor};
         border-bottom: 1.5px solid ${colors.mainYellowColor};
     }
