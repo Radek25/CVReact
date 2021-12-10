@@ -6,8 +6,10 @@ export const HomePage: FC = () => {
     return(
         <HomePageWrapper id="home">
             <div className='img-background'>
-                <img src={myPhoto}/>
+                <img src={myPhoto} alt="MyPhoto"/>
             </div>
+
+
         </HomePageWrapper>
     );
 };

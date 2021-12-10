@@ -5,6 +5,7 @@ import { HomePage } from '../HomePage/HomePage';
 import { PortfolioPage } from "../PortfolioPage/PortfolioPage";
 import { SkillsPage } from "../SkillsPage/SkillsPage";
 import { ContactPage } from "../ContactPage/ContactPage";
+import ReactPageScroller from 'react-page-scroller';
 
 export const navOptions = [
     {id: 1, name: 'Home', rootID: 'home'},
@@ -13,14 +14,18 @@ export const navOptions = [
     {id: 4, name: 'Kontakt', rootID: 'contact'}
 ];
 
+let test = 1;
+let test2: boolean = false;
 export const MainPage: FC = () =>{
     return(
         <MainPageWrapper>
             <NavBar/>
-            <HomePage/>
-            <PortfolioPage/>
-            <SkillsPage/>
-            <ContactPage/>
+            <ReactPageScroller>
+                <HomePage/>
+                <PortfolioPage/>
+                <SkillsPage/>
+                <ContactPage/>
+            </ReactPageScroller>
         </MainPageWrapper>
     );
 };
