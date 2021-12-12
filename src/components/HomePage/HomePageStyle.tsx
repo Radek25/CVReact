@@ -25,6 +25,11 @@ export const HomePageWrapper = styled.div`
         border-radius: 100%;
         animation: pulsate-fwd 2.5s ease-in-out infinite both;
     }
+    .auto-text{
+        width: 250px;
+        height: auto;
+        background-color: red;
+    }
     @keyframes pulsate-fwd {
     0% {
         transform: scale(1);
