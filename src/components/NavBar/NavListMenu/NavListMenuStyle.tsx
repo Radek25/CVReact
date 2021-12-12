@@ -1,13 +1,25 @@
 import styled from 'styled-components'
 import { colors } from '../../../styledHelpers/colors'
 
-export const NavListMenuWrapper = styled.div`
+interface IPageNumber{
+    pageID: number;
+}
+
+export const NavListMenuWrapper = styled.div<IPageNumber>`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    ul{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
         display: flex;
         justify-content: space-between;
         align-items: center;
-    .link{
+    }
+    li{
         font-family: 'Roboto', sans-serif;
-        font-size: 14px;
         letter-spacing: 1px;
         display: block;
         color: #b4b4b47a;
@@ -15,10 +27,13 @@ export const NavListMenuWrapper = styled.div`
         margin: 10px 25px;
         text-decoration: none;
         padding-bottom: 2px;
-        cursor: pointer;
     }
-    .active{
+    li:nth-child(${props => props.pageID+1}){
         color: ${colors.mainFontColor};
         border-bottom: 1.5px solid ${colors.mainYellowColor};
+    }
+    li:hover{
+        cursor: pointer;
+        color: ${colors.mainFontColor};
     }
 `;

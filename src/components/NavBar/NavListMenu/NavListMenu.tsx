@@ -1,12 +1,16 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { NavListMenuWrapper } from "./NavListMenuStyle";
 import { navOptions } from "../../MainPage/MainPage";
-import { Link, animateScroll as scroll } from "react-scroll";
 
-export const NavListMenu: FC = () =>{
+interface IPageNumber{
+    pageID: number;
+    setPageIndex: (pageIndex: number) => void;
+}
+
+export const NavListMenu: FC<IPageNumber> = (props) =>{
     return(
-        <NavListMenuWrapper>
-            {navOptions.map(content => <Link activeClass="active" className='link' key={content.id} to={content.rootID} spy={true} smooth={true} offset={0} duration={350}>{content.name}</Link>)}
+        <NavListMenuWrapper pageID={props.pageID}>
+            {navOptions.map(content => <li onClick={() => props.setPageIndex(content.id)} key={content.id}>{content.name}</li>)}
         </NavListMenuWrapper>
     );
 };

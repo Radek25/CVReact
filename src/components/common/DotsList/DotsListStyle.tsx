@@ -1,12 +1,15 @@
 import styled from "styled-components";
 import { colors } from './../../../styledHelpers/colors';
 
-export const DotsListWrapper = styled.div`
+interface IPageNumber{
+    pageID: number;
+}
+
+export const DotsListWrapper = styled.div<IPageNumber>`
     position: fixed;
     top: 40%;
     right: 20px;
     text-align: center;
-    cursor: pointer;
     ul{
         padding: 0;
         margin: 0;
@@ -14,16 +17,19 @@ export const DotsListWrapper = styled.div`
     li{
         list-style-type: none;
     }
-    li:before{
-    content: ' ';
-    width: 10px;
-    height: 10px;
-    margin: 10px 0;
-    display: inline-block;
-    border-radius: 100%;
-    background-color: #ffffff28;
+    li:hover{
+        cursor: pointer;
     }
-    .active > li:before{
+    li:before{
+        content: ' ';
+        width: 10px;
+        height: 10px;
+        margin: 10px 0;
+        display: inline-block;
+        border-radius: 100%;
+        background-color: #ffffff28;
+    }
+    li:nth-child(${props => props.pageID+1}):before{
         content: ' ';
         width: 10px;
         height: 10px;

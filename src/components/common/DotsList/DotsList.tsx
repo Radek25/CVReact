@@ -1,13 +1,16 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { DotsListWrapper } from "./DotsListStyle";
-import { navOptions } from "../../MainPage/MainPage";
-import { Link, animateScroll as scroll } from "react-scroll";
+import { navOptions } from './../../MainPage/MainPage';
+interface IPageNumber{
+    pageID: number;
+    setPageIndex: (pageIndex: number) => void; 
+}
 
-export const DotsList: FC = () =>{
+export const DotsList: FC<IPageNumber> = (props) =>{
     return(
-        <DotsListWrapper>
+        <DotsListWrapper pageID={props.pageID}>
             <ul>
-                {navOptions.map(content =><Link activeClass='active' key={content.id}  to={content.rootID} spy={true} smooth={true} offset={0} duration={350}><li></li></Link> )}
+                {navOptions.map(content => <li onClick={() => props.setPageIndex(content.id)} key={content.id}></li>)}
             </ul>
         </DotsListWrapper>
     );
