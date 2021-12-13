@@ -32,13 +32,13 @@ export const AutoTypeWrapper = styled.div<IAutoTextData>`
         background-color: ${colors.mainBackgroundColor};
         animation: typeWriter ${(props) => props.duration + 's'} steps(${(props) => props.stepsNumber}) 20ms forwards;
     }
-    /* h1:after{
+    h1:after{
         width: 1.5px;
         background: ${colors.mainFontColor};
         animation: 
             typeWriter ${(props) => props.duration + 's'} steps(${(props) => props.stepsNumber}) 20ms forwards,
             blink 1s steps(5) infinite;
-    } */
+    }
     @keyframes typeWriter{
         to{
             left: 100%;
