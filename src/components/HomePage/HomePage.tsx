@@ -1,7 +1,6 @@
 import React, { FC }  from "react";
 import { HomePageWrapper } from "./HomePageStyle";
 import myPhoto from "./../imgs/myPhoto.png"
-import { AutoType } from "../common/AutoType/AutoType";
 
 export const HomePage: FC = () => {
     return(
@@ -17,9 +16,11 @@ export const HomePage: FC = () => {
                     wybrałem studia w Wyższej Szkole Informatyki i Ekonometrii w Krakowie na kierunku Informatyka i Ekonometria.
                     Programowanie jest dla mnie jak łamigłówka, której rozwiązywanie sprawia przyjemności i uczy logicznego myślenia.
                 </p>
+                <div className="cv-and-contact-buttons">
+                    <a><button>Moje CV</button></a>
+                    <a><button>Kontakt</button></a>
+                </div>
             </div>
-            <div className="cv-and-contact-button"></div>
-            {/* Można dodać pasek z social mednia na dolny prawy róg z position absolute? */}
         </HomePageWrapper>
     );
 };

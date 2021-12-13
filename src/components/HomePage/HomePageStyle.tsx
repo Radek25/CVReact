@@ -32,22 +32,44 @@ export const HomePageWrapper = styled.div`
         h1{
             font-size: 50px;
             color: ${colors.mainFontColor};
-            letter-spacing: 2px;
-            margin-bottom: 5px;
-            animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+            letter-spacing: 3px;
+            margin-bottom: 2px;
+            animation: tracking-in-expand 1.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
         }
         h4{
+            letter-spacing: 1px;
             color: #5c5c5c;
             margin-top: 0px;
-            animation: focus-in-expand 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            animation: focus-in-expand 1.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
         }
         p{
             font-size: 15px;
-            color: #7c7c7c;
+            color: #dadada;
+            margin-bottom: 25px;
         }
         span{
             color: ${colors.mainYellowColor};
         }
+    }
+    .cv-and-contact-buttons{
+        button{
+            width: 150px;
+            height: 35px;
+            border-radius: 20px;
+            background-color: ${colors.mainYellowColor};
+            letter-spacing: 1px;
+            font-size: 15px;
+            outline: none;
+            font-weight: 550;
+            border: 1.5px solid ${colors.mainYellowColor};
+            margin-right: 15px;
+            color: ${colors.mainFontColor};
+        }
+        button:hover{
+            cursor: pointer;
+            animation: btn-beat-animation 2s ease-in-out infinite both;
+            /* animation: shake-bottom 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) both; */
+        } 
     }
     @keyframes pulsate-fwd {
         0% {
@@ -81,6 +103,30 @@ export const HomePageWrapper = styled.div`
         100% {
             filter: blur(0px);
             opacity: 1;
+        }
+    }
+   
+    @keyframes btn-beat-animation {
+        from {
+            transform: scale(1);
+            transform-origin: center center;
+            animation-timing-function: ease-out;
+        }
+        10% {
+            transform: scale(0.91);
+            animation-timing-function: ease-in;
+        }
+        17% {
+            transform: scale(0.98);
+            animation-timing-function: ease-out;
+        }
+        33% {
+            transform: scale(0.87);
+            animation-timing-function: ease-in;
+        }
+        45% {
+            transform: scale(1);
+            animation-timing-function: ease-out;
         }
     }
 `;

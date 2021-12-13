@@ -6,6 +6,7 @@ import { PortfolioPage } from "../PortfolioPage/PortfolioPage";
 import { SkillsPage } from "../SkillsPage/SkillsPage";
 import { ContactPage } from "../ContactPage/ContactPage";
 import ReactPageScroller from 'react-page-scroller';
+import { SocialMedia } from "../common/SocialMedia/SocialMedia";
 
 
 export const navOptions = [
@@ -29,6 +30,7 @@ export const MainPage: FC = () =>{
                 <SkillsPage/>
                 <ContactPage/>
             </ReactPageScroller>
+            <SocialMedia/>
         </MainPageWrapper>
     );
 };
