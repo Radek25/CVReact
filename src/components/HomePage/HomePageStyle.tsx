@@ -34,13 +34,13 @@ export const HomePageWrapper = styled.div`
             color: ${colors.mainFontColor};
             letter-spacing: 3px;
             margin-bottom: 2px;
-            animation: tracking-in-expand 1.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+            animation: tracking-in-expand 1.4s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
         }
         h4{
             letter-spacing: 1px;
             color: #5c5c5c;
             margin-top: 0px;
-            animation: focus-in-expand 1.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            animation: focus-in-expand 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
         }
         p{
             font-size: 15px;
