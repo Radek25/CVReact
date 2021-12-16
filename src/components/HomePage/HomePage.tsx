@@ -4,7 +4,7 @@ import myPhoto from "./../imgs/myPhoto.png"
 
 export const HomePage: FC = () => {
     return(
-        <HomePageWrapper id="home">
+        <HomePageWrapper>
             <div className='img-background'>
                 <img src={myPhoto} alt="MyPhoto"/>
             </div>
