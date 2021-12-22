@@ -7,8 +7,8 @@ import Avatar from '@mui/material/Avatar';
 import { colors } from './../../styledHelpers/colors';
 
 interface IPageNumber{
-    pageID: number;
-    setPageIndex: (pageIndex: number) => void;
+    pageIndex: number; //Przychodzący pageIndex wysyłany do NavListMenu i DotsList
+    setPageIndex: (pageIndex: number) => void; //Wychodzący pageIndex wysyłany do MainPage
 }
 
 export const NavBar: FC<IPageNumber> = (props) =>{
@@ -18,8 +18,8 @@ export const NavBar: FC<IPageNumber> = (props) =>{
                 <Avatar sx={{width: 33, height: 33 ,bgcolor: `${colors.mainYellowColor}`}}>R</Avatar>
                 <span><b>Radek</b> Kot</span>
             </NavBarLeftSideContainer>
-            <NavListMenu setPageIndex={props.setPageIndex} pageID={props.pageID}/>
-            <DotsList setPageIndex={props.setPageIndex} pageID={props.pageID}/>
+            <NavListMenu setPageIndex={props.setPageIndex} pageIndex={props.pageIndex}/>
+            <DotsList setPageIndex={props.setPageIndex} pageIndex={props.pageIndex}/>
         </NavBarWrapper>
     );
 };

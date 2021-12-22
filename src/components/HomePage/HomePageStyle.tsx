@@ -68,7 +68,6 @@ export const HomePageWrapper = styled.div`
         button:hover{
             cursor: pointer;
             animation: btn-beat-animation 2s ease-in-out infinite both;
-            /* animation: shake-bottom 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) both; */
         } 
     }
     @keyframes pulsate-fwd {

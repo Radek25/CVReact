@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { colors } from '../../../styledHelpers/colors'
 
 interface IPageNumber{
-    pageID: number;
+    pageIndex: number;
 }
 
 export const NavListMenuWrapper = styled.div<IPageNumber>`
@@ -28,7 +28,7 @@ export const NavListMenuWrapper = styled.div<IPageNumber>`
         text-decoration: none;
         padding-bottom: 2px;
     }
-    li:nth-child(${props => props.pageID+1}){
+    li:nth-child(${props => props.pageIndex+1}){ //Dadajemy 1 bo pageIndex liczony od 0 a krzystamy z nth-child
         color: ${colors.mainFontColor};
         border-bottom: 1.5px solid ${colors.mainYellowColor};
     }

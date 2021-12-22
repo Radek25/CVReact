@@ -15,18 +15,15 @@ export const navOptions = [
     {id: 2, name: 'Umiejętności'},
     {id: 3, name: 'Kontakt'}
 ];
-
  
 export const MainPage: FC = () =>{
-    let [pageID, setPage] = useState(0) //State i funkcja przekazywana do zmiany kolorów i zaznaczej w stylach list i kropek
-    let [pageIndex, setPageIndex] = useState(0) //State i funkcja odbierająca wybrane opcje w lista lub kropki
-    let [isPageOne, setFlagOnFirstPage] = useState(false);
+    let [pageIndex, setPageIndex] = useState(0);
     return(
         <MainPageWrapper>
-            <NavBar setPageIndex={setPageIndex} pageID={pageID}/>
-            <ReactPageScroller onBeforePageScroll={() => setFlagOnFirstPage(true)} customPageNumber={pageIndex} pageOnChange={(id) =>{setPage(id); setPageIndex(id);}} animationTimer={400} animationTimerBuffer={0}>
+            <NavBar pageIndex={pageIndex} setPageIndex={setPageIndex}/>
+            <ReactPageScroller onBeforePageScroll={(pageIndex) => setPageIndex(pageIndex)} renderAllPagesOnFirstRender={true} customPageNumber={pageIndex} animationTimer={500} animationTimerBuffer={0}>
                 <HomePage/>
-                <PortfolioPage isPageOne={isPageOne}/>
+                <PortfolioPage isPageOne={pageIndex > 0 ? true : false}/>
                 <SkillsPage/>
                 <ContactPage/>
             </ReactPageScroller>

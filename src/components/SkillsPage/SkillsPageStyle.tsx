@@ -7,5 +7,21 @@ export const SkillsPageWrapper = styled.div`
     box-sizing: border-box;
     padding: 70px 20px;
     background-color: ${colors.mainBackgroundColor};
-    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    span{
+        width: 50px;
+        height: 30px;
+        top: 60px;
+        left: 60px;
+        background-color: red;
+        position: absolute;
+    }
+    .test{
+        width: 100%;
+        height: 200px;
+        background-color: green;
+    }
 `;

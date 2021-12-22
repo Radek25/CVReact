@@ -1,4 +1,4 @@
-import React, { FC }  from "react";
+import React, { FC, useState }  from "react";
 import { PortfolioPageWrapper } from "./PortfolioPageStyle";
 import { AppCard } from "./PortfolioPageStyle";
 
@@ -21,7 +21,19 @@ interface ICurrentPage{
 export const PortfolioPage: FC<ICurrentPage> = (props) => {
     return(
         <PortfolioPageWrapper isPageOne={props.isPageOne}>
-            {AppsCollection.map(content => <AppCard key={content.index} index={content.index} name={content.name} isPageOne={props.isPageOne}/>)};
+            {AppsCollection.map(content => 
+            <AppCard key={content.index} index={content.index} name={content.name} isPageOne={props.isPageOne}>
+                <div className={'shadow-card'}>
+                    <p>
+                        Tutaj bedzie jakiś tekst generowny z tablicy, jeszcze nie wiem co ale chyba takie ogólne
+                        rzeczy w stylu jak dany projekt robiłem z czego korzystałem itp.
+                    </p>
+                    <span>
+                        <i className="fas fa-play-circle"></i>
+                        <i className="fab fa-github"></i>
+                    </span>
+                </div>
+            </AppCard>)};
             <div className="github-btn-wrapper"><button>Przejdź na mój Github</button></div>
         </PortfolioPageWrapper>
     );

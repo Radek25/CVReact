@@ -1,16 +1,16 @@
-import React, { FC, useState } from "react";
+import React, { FC, } from "react";
 import { NavListMenuWrapper } from "./NavListMenuStyle";
 import { navOptions } from "../../MainPage/MainPage";
 
 interface IPageNumber{
-    pageID: number;
-    setPageIndex: (pageIndex: number) => void;
+    pageIndex: number; //Przychodzący pageIndex
+    setPageIndex: (pageIndex: number) => void; //Wy pageIndex
 }
 
 export const NavListMenu: FC<IPageNumber> = (props) =>{
     return(
-        <NavListMenuWrapper pageID={props.pageID}>
-            {navOptions.map(content => <li onClick={() => props.setPageIndex(content.id)} key={content.id}>{content.name}</li>)}
+        <NavListMenuWrapper pageIndex={props.pageIndex}>
+            {navOptions.map(option => <li onClick={() => props.setPageIndex(option.id)} key={option.id}>{option.name}</li>)}
         </NavListMenuWrapper>
     );
 };
