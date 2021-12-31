@@ -1,14 +1,40 @@
 import React, { FC }  from "react";
 import { SkillsPageWrapper } from "./SkillsPageStyle";
-import ProgressBar from 'react-customizable-progressbar'
+import ProgressBar from 'react-customizable-progressbar';
 
-export const SkillsPage: FC = () => {  
-    const progress = 60;
+//IMGS imports
+import HTML_logo from '../imgs/skillsLogo/HTML-logo.png'
+import CSS_logo from '../imgs/skillsLogo/CSS-logo.png'
+import JS_logo from '../imgs/skillsLogo/JS-logo.png'
+import TS_logo from '../imgs/skillsLogo/TS-logo.png'
+import React_logo from '../imgs/skillsLogo/React-logo.png'
+import SASS_logo from '../imgs/skillsLogo/SASS-logo.png'
+import StyledComponents_logo from '../imgs/skillsLogo/SC-logo.png'
+import CSharp_logo from '../imgs/skillsLogo/CSharp-logo.png'
+interface ICurrentPage{
+    isPageTwo: boolean;
+}
+
+let SkillsArray = [
+    {id: 1, name: 'HTML 5', img: HTML_logo, progress: 90},
+    {id: 2, name: 'CSS 3', img: CSS_logo, progress: 85},
+    {id: 3, name: 'JavaScript', img: JS_logo, progress: 75},
+    {id: 4, name: 'TypeScript', img: TS_logo, progress: 70},
+    {id: 5, name: 'React', img: React_logo, progress: 65},
+    {id: 6, name: 'SASS', img: SASS_logo, progress: 70},
+    {id: 7, name: 'Styled Components', img: StyledComponents_logo, progress: 75},
+    {id: 8, name: 'C#', img: CSharp_logo, progress: 50},
+];
+
+export const SkillsPage: FC<ICurrentPage> = (props) => {  
     return(
-        <SkillsPageWrapper>
-        <ProgressBar
+        <SkillsPageWrapper isPageTwo={props.isPageTwo}>
+        {props.isPageTwo === false ? null : SkillsArray.map((SkillsData) => 
+         <ProgressBar
+            key={SkillsData.id}
+            className='progress-bars'
             radius={65}
-            progress={progress}
+            progress={SkillsData.progress}
             cut={120}
             rotate={-210}
             strokeWidth={10}
@@ -19,12 +45,13 @@ export const SkillsPage: FC = () => {
             trackStrokeLinecap="round"
             pointerRadius={0}
             initialAnimation={true}
-            transition="1s ease 0s"
+            transition="1s ease 0.4s"
             trackTransition="0s ease">
-            <span></span>
+            <span className="percentWrapper">70%</span>
+            <img src={SkillsData.img}/>
+            <span className="nameWrapper">{SkillsData.name}</span>
         </ProgressBar>
-
-        <div className="test"></div>
+        )}
         </SkillsPageWrapper>
     );
 };

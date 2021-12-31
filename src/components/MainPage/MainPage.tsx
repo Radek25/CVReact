@@ -8,7 +8,6 @@ import { ContactPage } from "../ContactPage/ContactPage";
 import ReactPageScroller from 'react-page-scroller';
 import { SocialMedia } from "../common/SocialMedia/SocialMedia";
 
-
 export const navOptions = [
     {id: 0, name: 'Home'},
     {id: 1, name: 'Portfolio'}, 
@@ -18,13 +17,30 @@ export const navOptions = [
  
 export const MainPage: FC = () =>{
     let [pageIndex, setPageIndex] = useState(0);
+    let [isPageOne, setViewPageOne] = useState(false);
+    let [isPageTwo, setViewPageTwo] = useState(false);
+
     return(
         <MainPageWrapper>
             <NavBar pageIndex={pageIndex} setPageIndex={setPageIndex}/>
-            <ReactPageScroller onBeforePageScroll={(pageIndex) => setPageIndex(pageIndex)} renderAllPagesOnFirstRender={true} customPageNumber={pageIndex} animationTimer={500} animationTimerBuffer={0}>
+            <ReactPageScroller 
+                onBeforePageScroll={(pageIndex) => {
+                    setPageIndex(pageIndex); 
+                    if(pageIndex == 1){
+                        setViewPageOne(true)
+                    }
+                    if(pageIndex == 2){
+                        setViewPageTwo(true)
+                    }
+                }} 
+                renderAllPagesOnFirstRender={true} 
+                customPageNumber={pageIndex} 
+                animationTimer={500} 
+                animationTimerBuffer={0}
+           >
                 <HomePage/>
-                <PortfolioPage isPageOne={pageIndex > 0 ? true : false}/>
-                <SkillsPage/>
+                <PortfolioPage isPageOne={isPageOne}/>
+                <SkillsPage isPageTwo={isPageTwo}/>
                 <ContactPage/>
             </ReactPageScroller>
             <SocialMedia/>

@@ -1,27 +1,44 @@
 import styled from "styled-components";
 import { colors } from "../../styledHelpers/colors";
 
-export const SkillsPageWrapper = styled.div`
+interface ISkillPageData{
+    isPageTwo: boolean;
+}
+
+export const SkillsPageWrapper = styled.div<ISkillPageData>`
     width: 100%;
     height: 100vh;
     box-sizing: border-box;
-    padding: 70px 20px;
+    padding: 70px 50px;
     background-color: ${colors.mainBackgroundColor};
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    span{
-        width: 50px;
-        height: 30px;
-        top: 60px;
-        left: 60px;
-        background-color: red;
-        position: absolute;
+    font-family: 'Roboto', sans-serif;
+    .progress-bars{
+        flex: 1 0 21%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
     }
-    .test{
-        width: 100%;
-        height: 200px;
-        background-color: green;
+    span{
+        position: absolute;
+        float: center;
+        color: ${colors.mainFontColor};
+    }
+    .percentWrapper{
+        top: 45px;
+    }
+    .nameWrapper{
+        bottom: 15px;
+    }
+    img{
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: 75px;
+        float: center;
     }
 `;
