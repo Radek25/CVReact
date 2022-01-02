@@ -1,6 +1,7 @@
 import React, { FC }  from "react";
 import { SkillsPageWrapper } from "./SkillsPageStyle";
 import ProgressBar from 'react-customizable-progressbar';
+import CountUp from "react-countup";
 
 //IMGS imports
 import HTML_logo from '../imgs/skillsLogo/HTML-logo.png'
@@ -47,7 +48,7 @@ export const SkillsPage: FC<ICurrentPage> = (props) => {
             initialAnimation={true}
             transition="1s ease 0.4s"
             trackTransition="0s ease">
-            <span className="percentWrapper">70%</span>
+            <CountUp className="percentWrapper" duration={1.2} end={SkillsData.progress} suffix="%"/>
             <img src={SkillsData.img}/>
             <span className="nameWrapper">{SkillsData.name}</span>
         </ProgressBar>

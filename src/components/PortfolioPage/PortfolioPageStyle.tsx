@@ -39,7 +39,7 @@ export const PortfolioPageWrapper = styled.div<IAppBtnData>`
         border-radius: 5px;
         font-weight: 550;
         letter-spacing: 1px;
-        ${(props) => props.isPageOne === true? 'animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;' : 'none'}
+        ${(props) => props.isPageOne === true? 'animation: slide-in-bottom 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;' : 'none'}
     }
     button:hover{
         cursor: pointer;

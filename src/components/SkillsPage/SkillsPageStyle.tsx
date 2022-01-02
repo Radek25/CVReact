@@ -30,9 +30,12 @@ export const SkillsPageWrapper = styled.div<ISkillPageData>`
     }
     .percentWrapper{
         top: 45px;
+        text-align: center;
+        font-size: 18px;
     }
     .nameWrapper{
-        bottom: 15px;
+        bottom: 10px;
+        font-size: 18px;
     }
     img{
         width: 50px;
