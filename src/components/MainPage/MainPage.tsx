@@ -19,6 +19,7 @@ export const MainPage: FC = () =>{
     let [pageIndex, setPageIndex] = useState(0);
     let [isPageOne, setViewPageOne] = useState(false);
     let [isPageTwo, setViewPageTwo] = useState(false);
+    let [isPageThree, setViewPageThree] = useState(false);
 
     return(
         <MainPageWrapper>
@@ -29,8 +30,11 @@ export const MainPage: FC = () =>{
                     if(pageIndex == 1){
                         setViewPageOne(true)
                     }
-                    if(pageIndex == 2){
+                    else if(pageIndex == 2){
                         setViewPageTwo(true)
+                    }
+                    else if(pageIndex == 3){
+                        setViewPageThree(true)
                     }
                 }} 
                 renderAllPagesOnFirstRender={true} 
@@ -41,7 +45,7 @@ export const MainPage: FC = () =>{
                 <HomePage/>
                 <PortfolioPage isPageOne={isPageOne}/>
                 <SkillsPage isPageTwo={isPageTwo}/>
-                <ContactPage/>
+                <ContactPage isPageThree={isPageThree}/>
             </ReactPageScroller>
             <SocialMedia/>
         </MainPageWrapper>

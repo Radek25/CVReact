@@ -11,8 +11,8 @@ export const HomePageWrapper = styled.div`
     justify-content: center;
     align-items: center;
     .img-background{
-        width: 325px;
-        height: 325px;
+        width: 26vw;
+        height: 26vw;
         border-radius: 100%;
         background-color: #444444;
         display: flex;
@@ -20,8 +20,8 @@ export const HomePageWrapper = styled.div`
         align-items: center;
     }
     img{
-        width: 300px;
-        height: 300px;
+        width: 25vw;
+        height: 25vw;
         border-radius: 100%;
         animation: pulsate-fwd 2s ease-in-out 0.8s infinite both;
     }
@@ -70,6 +70,7 @@ export const HomePageWrapper = styled.div`
             animation: btn-beat-animation 2s ease-in-out infinite both;
         } 
     }
+    /* Animations - BEGIN */
     @keyframes pulsate-fwd {
         0% {
             transform: scale(1);
@@ -128,4 +129,5 @@ export const HomePageWrapper = styled.div`
             animation-timing-function: ease-out;
         }
     }
+    /* Animations - END */
 `;

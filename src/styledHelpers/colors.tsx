@@ -7,4 +7,5 @@ export const colors = {
     messengerLogoColor: '#00B2FF',
     githubLogoColor: '#6cc644',
     linkedinLogoColor: '#2867B2',
+    formInputColor: '#363636',
 }
