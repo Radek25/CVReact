@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { colors } from './../../../styledHelpers/colors';
+import { widths } from "../../../styledHelpers/widths";
 
 export const SocialMediaWrapper = styled.div`
     position: absolute;
@@ -18,7 +19,6 @@ export const SocialMediaWrapper = styled.div`
         transform: scale(1.2);
         border: none;
         outline: none;
-        color: ${colors.mainYellowColor};
     }
     i:hover:after{
         content: '';
@@ -60,6 +60,76 @@ export const SocialMediaWrapper = styled.div`
         left: 1px;
     }
 
+    /*RWD max-width: 360px - BEGING*/
+    @media (${widths.mobileSmall}){
+        top: 93%;
+        left: 0; 
+        right: 0; 
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 15px;
+        animation: none;
+    }
+    i:after{
+        @media (${widths.mobileSmall}){
+            content: '';
+            background-color: #ffffff;
+            position: absolute;
+            z-index: -1;
+        }
+    }
+    .fa-facebook{
+        @media (${widths.mobileSmall}){
+            color: ${colors.facebookLogoColor};
+        }
+    }
+
+    .fa-facebook:after{
+        @media (${widths.mobileSmall}){
+            width: 20px;
+            height: 20px;
+            bottom: 1px;
+            left: 1px;
+            border-radius: 100%;
+        }
+    }
+    .fa-facebook-messenger{
+        @media (${widths.mobileSmall}){
+            color: ${colors.messengerLogoColor};
+        }
+    }
+    .fa-facebook-messenger:after{
+        @media (${widths.mobileSmall}){
+            width: 20px;
+            height: 20px;
+            bottom: 1px;
+            left: 1px;
+            border-radius: 100%;
+        }
+    }
+    .fa-github{
+        @media (${widths.mobileSmall}){
+            color: ${colors.githubLogoColor};
+        }
+    }
+    .fa-linkedin{
+        @media (${widths.mobileSmall}){
+            color: ${colors.linkedinLogoColor};
+        }
+    }
+    .fa-linkedin:after{
+        @media (${widths.mobileSmall}){
+            border-radius: 0px;
+            width: 16px;
+            height: 16px;
+            top: 2px;
+            left: 1px;
+        }
+    }
+    /*RWD max-width: 360px - END*/
+
+    /*Animations - BEGIN*/
     @keyframes slide-in-blurred-right {
         0% {
             transform: translateX(1000px) scaleX(2.5) scaleY(0.2);
@@ -72,4 +142,5 @@ export const SocialMediaWrapper = styled.div`
             opacity: 1;
         }
     }
+    /*Animations - END*/
 `;

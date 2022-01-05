@@ -7,9 +7,17 @@ interface IPageNumber{
 
 export const DotsListWrapper = styled.div<IPageNumber>`
     position: fixed;
+    height: 136px;
     top: 40%;
     right: 20px;
     text-align: center;
+    @media (max-width: 360px){
+        display: none;
+        //Do przemyślenia czy mają być kropki czy nie!
+        /* right: 85px;
+        top: 80%;
+        transform: rotate(270deg); */
+    }
     ul{
         padding: 0;
         margin: 0;
@@ -40,14 +48,16 @@ export const DotsListWrapper = styled.div<IPageNumber>`
         animation: scale-in-center 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     }
 
+    /*Animations - BEGIN*/
     @keyframes scale-in-center {
-    0% {
-        transform: scale(0);
-        opacity: 1;
+        0% {
+            transform: scale(0);
+            opacity: 1;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
     }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
+    /*Animations - END*/
 `;

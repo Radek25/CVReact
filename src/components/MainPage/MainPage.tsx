@@ -1,12 +1,12 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, useEffect } from "react";
 import { MainPageWrapper } from "./MainPageStyle";
 import { NavBar } from "../NavBar/NavBar";
 import { HomePage } from '../HomePage/HomePage';
 import { PortfolioPage } from "../PortfolioPage/PortfolioPage";
 import { SkillsPage } from "../SkillsPage/SkillsPage";
 import { ContactPage } from "../ContactPage/ContactPage";
-import ReactPageScroller from 'react-page-scroller';
 import { SocialMedia } from "../common/SocialMedia/SocialMedia";
+import ReactPageScroller from 'react-page-scroller';
 
 export const navOptions = [
     {id: 0, name: 'Home'},
@@ -14,6 +14,19 @@ export const navOptions = [
     {id: 2, name: 'Umiejętności'},
     {id: 3, name: 'Kontakt'}
 ];
+
+function GetWindowWidth() {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    useEffect(() => {
+        function handleResize() {
+            setWindowWidth(window.innerWidth);
+        }
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    });
+    return windowWidth;
+}
+
  
 export const MainPage: FC = () =>{
     let [pageIndex, setPageIndex] = useState(0);
@@ -21,9 +34,13 @@ export const MainPage: FC = () =>{
     let [isPageTwo, setViewPageTwo] = useState(false);
     let [isPageThree, setViewPageThree] = useState(false);
 
+    let [isHamburgerActive, setHamburgerBtn] = useState(false);
+
+    const pageWidth = GetWindowWidth();
+
     return(
         <MainPageWrapper>
-            <NavBar pageIndex={pageIndex} setPageIndex={setPageIndex}/>
+            <NavBar pageIndex={pageIndex} setPageIndex={setPageIndex} pageWidth={pageWidth}/>
             <ReactPageScroller 
                 onBeforePageScroll={(pageIndex) => {
                     setPageIndex(pageIndex); 
@@ -47,7 +64,7 @@ export const MainPage: FC = () =>{
                 <SkillsPage isPageTwo={isPageTwo}/>
                 <ContactPage isPageThree={isPageThree}/>
             </ReactPageScroller>
-            <SocialMedia/>
+            {pageWidth > 360 ? <SocialMedia/> : null}
         </MainPageWrapper>
     );
 };

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { colors } from '../../../styledHelpers/colors'
+import { widths } from '../../../styledHelpers/widths';
 
 interface IPageNumber{
     pageIndex: number;
@@ -19,7 +20,6 @@ export const NavListMenuWrapper = styled.div<IPageNumber>`
         align-items: center;
     }
     li{
-        font-family: 'Roboto', sans-serif;
         letter-spacing: 1px;
         display: block;
         color: #b4b4b47a;
@@ -36,4 +36,11 @@ export const NavListMenuWrapper = styled.div<IPageNumber>`
         cursor: pointer;
         color: ${colors.mainFontColor};
     }
+    /*RWD max-width: 360px - BEGING*/
+    @media (${widths.mobileSmall}){
+        min-height: 165px;
+        flex-direction: column;
+        margin-top: 40px;
+    }
+    /*RWD max-width: 360px - END*/
 `;

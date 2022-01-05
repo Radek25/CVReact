@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { colors } from "../../styledHelpers/colors";
+import { widths } from "../../styledHelpers/widths";
 
 export const HomePageWrapper = styled.div`
     width: 100%;
@@ -11,8 +12,8 @@ export const HomePageWrapper = styled.div`
     justify-content: center;
     align-items: center;
     .img-background{
-        width: 26vw;
-        height: 26vw;
+        width: 25vw;
+        height: 25vw;
         border-radius: 100%;
         background-color: #444444;
         display: flex;
@@ -20,15 +21,14 @@ export const HomePageWrapper = styled.div`
         align-items: center;
     }
     img{
-        width: 25vw;
-        height: 25vw;
+        width: 24vw;
+        height: 24vw;
         border-radius: 100%;
         animation: pulsate-fwd 2s ease-in-out 0.8s infinite both;
     }
     .about-me-description{
-        width: 550px;
+        width: 45vw;
         margin: 0 10px 0 50px;
-        font-family: 'Roboto', sans-serif;
         h1{
             font-size: 50px;
             color: ${colors.mainFontColor};
@@ -43,7 +43,7 @@ export const HomePageWrapper = styled.div`
             animation: focus-in-expand 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
         }
         p{
-            font-size: 15px;
+            font-size: 16px;
             color: #dadada;
             margin-bottom: 25px;
         }
@@ -70,6 +70,64 @@ export const HomePageWrapper = styled.div`
             animation: btn-beat-animation 2s ease-in-out infinite both;
         } 
     }
+    /*RWD max-width: 360px - BEGING*/
+    @media (${widths.mobileSmall}){
+        padding: 20px 10px 15px;
+        flex-direction: column;
+    }
+    .img-background{
+        @media (${widths.mobileSmall}){
+            width: 59vw;
+            height: 59vw;
+        }
+    }
+    img{
+        @media (${widths.mobileSmall}){
+            width: 56vw;
+            height: 56vw;
+        }
+    }
+    .about-me-description{
+        @media (${widths.mobileSmall}){
+            width: 90vw;
+            margin: 10px 0;
+            text-align: center;
+        }
+        h1{
+            @media (${widths.mobileSmall}){
+                font-size: 35px;
+            }
+        }
+        h4{
+            @media (${widths.mobileSmall}){
+                font-size: 18px;
+                margin-bottom: 15px;
+            }
+        }
+        p{
+            @media (${widths.mobileSmall}){
+                font-size: 14px;
+                margin-top: 10px;
+            }
+        }
+    }
+    .cv-and-contact-buttons{
+        @media (${widths.mobileSmall}){
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        button{
+            @media (${widths.mobileSmall}){
+                width: 100px;
+                height: 30px;
+                font-weight: 300;
+                margin: 0 10px;
+            }
+        }
+    }
+    /*RWD max-width: 360px - END*/
+
     /* Animations - BEGIN */
     @keyframes pulsate-fwd {
         0% {
