@@ -22,17 +22,16 @@ export const PortfolioPage: FC<ICurrentPage> = (props) => {
     return(
         <PortfolioPageWrapper isPageOne={props.isPageOne}>
             {AppsCollection.map(content => 
-            <AppCard key={content.index} index={content.index} name={content.name} isPageOne={props.isPageOne}>
-                <div className={'shadow-card'}>
-                    <p>
-                        Tutaj bedzie jakiś tekst generowny z tablicy, jeszcze nie wiem co ale chyba takie ogólne
-                        rzeczy w stylu jak dany projekt robiłem z czego korzystałem itp.
-                    </p>
-                    <span>
-                        <i className="fas fa-play-circle"></i>
-                        <i className="fab fa-github"></i>
-                    </span>
+            <AppCard key={content.index} name={content.name} isPageOne={props.isPageOne}>
+                {window.innerWidth > 360 ?
+                <div className='shadow-card'><p>Tutaj bedzie jakiś tekst generowny z tablicy, jeszcze nie wiem co ale chyba takie ogólne rzeczy w stylu jak dany projekt robiłem z czego korzystałem itp.</p>
+                    <span><i className="fas fa-play-circle"></i><i className="fab fa-github"></i></span>
                 </div>
+                : 
+                <div className='shadow-card'>
+                    <div className="mobile-icon-of-card"><i className="fas fa-play-circle"></i><span>Live</span></div>
+                    <div className="mobile-icon-of-card"><i className="fab fa-github"></i><span>GitHub</span></div>
+                </div>}
             </AppCard>)};
             <div className="github-btn-wrapper"><button>Przejdź na mój Github</button></div>
         </PortfolioPageWrapper>

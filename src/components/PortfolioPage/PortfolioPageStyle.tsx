@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { colors } from "../../styledHelpers/colors";
+import { widths } from "../../styledHelpers/widths";
 
 interface IAppCardsData{
-    index: number;
     name: string;
     isPageOne: boolean
 }
@@ -44,6 +44,12 @@ export const PortfolioPageWrapper = styled.div<IAppBtnData>`
     button:hover{
         cursor: pointer;
     }
+
+    /*RWD max-width: 360px - BEGING*/
+    @media (${widths.mobileSmall}){
+        padding: 35px 10px 15px;
+    }
+    /*RWD max-width: 360px - END*/
 `;
 export const AppCard = styled.div<IAppCardsData>`
     width: 230px;
@@ -54,6 +60,7 @@ export const AppCard = styled.div<IAppCardsData>`
     background-image: url(${props => props.name});
     background-repeat: no-repeat;
     background-position: center;
+    background-size: contain;
     opacity: 0;
     ${(props) => props.isPageOne === true? 'animation: rotate-in-ver 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1 5ms both;' : 'none'}
     .shadow-card{
@@ -95,6 +102,45 @@ export const AppCard = styled.div<IAppCardsData>`
         opacity: 1;
         cursor: default;
     }
+
+    /*RWD max-width: 360px - BEGING*/
+    @media (${widths.mobileSmall}){
+        width: 40.5vw;
+        height: 40.5vw;
+        margin: 5px 10px;
+        flex: 2 0 40.5vw;
+        background-color: transparent;
+        .shadow-card{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            padding: 10px;
+            background-color: #111111ea;
+        }
+        .shadow-card:active{
+            opacity: 1
+        }
+        .mobile-icon-of-card{
+            width: 40%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            i{
+                font-size: 12vw;
+            }
+            span{
+                width: 100%;
+                text-align: center;
+                font-size: 14px;
+                color: ${colors.mainFontColor};
+            }
+        }
+    }
+    /*RWD max-width: 360px - END*/
+
+    /*Animations - BEGIN*/
     @keyframes rotate-in-ver {
         0% {
             transform: rotateY(-180deg);
@@ -154,4 +200,5 @@ export const AppCard = styled.div<IAppCardsData>`
             opacity: 1;
         }
     }
+    /*Animations - END*/
 `;
