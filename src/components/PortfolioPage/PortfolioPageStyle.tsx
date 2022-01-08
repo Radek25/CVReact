@@ -2,19 +2,16 @@ import styled from "styled-components";
 import { colors } from "../../styledHelpers/colors";
 import { widths } from "../../styledHelpers/widths";
 
-interface IAppCardsData{
-    name: string;
+interface IPortfolioPageData{
     isPageOne: boolean
-}
-interface IAppBtnData{
-    isPageOne: boolean
+    activeAppCard: number;
 }
 
-export const PortfolioPageWrapper = styled.div<IAppBtnData>`
+export const PortfolioPageWrapper = styled.div<IPortfolioPageData>`
     width: 100%;
     height: 100vh;
     box-sizing: border-box;
-    padding: 70px 20px;
+    padding: 70px 50px;
     background-color: ${colors.mainBackgroundColor};
     display: flex;
     flex-wrap: wrap;
@@ -47,94 +44,86 @@ export const PortfolioPageWrapper = styled.div<IAppBtnData>`
 
     /*RWD max-width: 360px - BEGING*/
     @media (${widths.mobileSmall}){
-        padding: 35px 10px 15px;
+        padding: 35px 5px 15px;
     }
     /*RWD max-width: 360px - END*/
 `;
-export const AppCard = styled.div<IAppCardsData>`
-    width: 230px;
-    height: 265px;
-    margin: 0 15px;
-    border-radius: 10px;
-    background-color: ${colors.mainYellowColor};
-    background-image: url(${props => props.name});
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    opacity: 0;
-    ${(props) => props.isPageOne === true? 'animation: rotate-in-ver 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1 5ms both;' : 'none'}
-    .shadow-card{
-        width: 100%;
-        height: 100%;
-        padding: 20px;
-        box-sizing: border-box;
+export const AppsLogoWrapper = styled.div<IPortfolioPageData>`
+    width: 90%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .app-logo{
+        width: 250px;
+        height: 250px;
+        margin: 10px;
+        position: relative;
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        border-radius: 10px;
-        opacity: 0;
-        p{
-            margin: 0;
-            padding: 15px 10px;
-            color: ${colors.mainFontColor};
-            text-align: center;
-        }
-        span{
-            width: 100%;
-            padding: 5px 20px;
-            box-sizing: border-box;
-            font-size: 30px;
+        justify-content: center;
+        flex: 1 0 20%;
+        ${(props) => props.isPageOne === true? 'animation: rotate-in-ver 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1 5ms both;' : 'none'}
+        .app-logo-text-icons-wrapper{
+            width: 250px;
+            height: 250px;
+            padding: 10px;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column;
+            justify-content: space-between;
+            box-sizing: border-box;
+            background-color: #111111ff;
+            border-radius: 10px;
+            position: absolute;
+            color: ${colors.mainFontColor} ;
+            opacity: 0;
+            p{
+                font-size: 14px;
+                line-height: 1.8;
+                text-align: center;
+            }
+            .icons-wrapper{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0;
+                text-align: center;
+                font-size: 30px;
+                i{
+                    padding: 0 10px;
+                }
+                i:hover{
+                    cursor: pointer;
+                }
+            }
         }
-        i{
-            margin: 0 15px;
-            color: ${colors.mainFontColor};
-        }
-        i:hover{
-            cursor: pointer;
+        .app-logo-text-icons-wrapper:hover{
+            opacity: 1;
         }
     }
-    .shadow-card:hover{
-        animation: flip-in-ver-right 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-        background-color: #111111dc;
-        opacity: 1;
-        cursor: default;
+    .app-logo:hover{
+        cursor: pointer;
     }
 
     /*RWD max-width: 360px - BEGING*/
     @media (${widths.mobileSmall}){
-        width: 40.5vw;
-        height: 40.5vw;
-        margin: 5px 10px;
-        flex: 2 0 40.5vw;
-        background-color: transparent;
-        .shadow-card{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            padding: 10px;
-            background-color: #111111ea;
-        }
-        .shadow-card:active{
-            opacity: 1
-        }
-        .mobile-icon-of-card{
-            width: 40%;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            i{
-                font-size: 12vw;
-            }
-            span{
-                width: 100%;
-                text-align: center;
-                font-size: 14px;
-                color: ${colors.mainFontColor};
+        width: 100%;
+        max-height: 80vh;
+        .app-logo{
+            width: 45vw;
+            height: 45vw;
+            margin: 10px 5px;
+            flex: 2 0 42%;
+            .app-logo-text-icons-wrapper{
+                width: 45vw;
+                height: 45vw;
+                padding: 5px;
+                p{
+                    font-size: 3.3vw;
+                    line-height: 1.2;
+                }
+                i{
+                    font-size: 6.5vw;
+                }
             }
         }
     }
@@ -188,16 +177,6 @@ export const AppCard = styled.div<IAppCardsData>`
         45% {
             transform: scale(1);
             animation-timing-function: ease-out;
-        }
-    }
-    @keyframes flip-in-ver-right {
-        0% {
-            transform: rotateY(-80deg);
-            opacity: 0;
-        }
-        100% {
-            transform: rotateY(0);
-            opacity: 1;
         }
     }
     /*Animations - END*/
