@@ -36,11 +36,14 @@ export const NavListMenuWrapper = styled.div<IPageNumber>`
         cursor: pointer;
         color: ${colors.mainFontColor};
     }
-    /*RWD max-width: 360px - BEGING*/
-    @media (${widths.mobileSmall}){
+    /*RWD max-width: 0px - 480px - BEGING*/
+    @media (${widths.mobileLarge}){
         min-height: 165px;
         flex-direction: column;
         margin-top: 40px;
+        li{
+            font-size: 5vw;
+        }
     }
-    /*RWD max-width: 360px - END*/
+    /*RWD max-width: 0px - 480px - END*/
 `;

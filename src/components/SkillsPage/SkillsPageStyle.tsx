@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { colors } from "../../styledHelpers/colors";
+import { widths } from "../../styledHelpers/widths";
 
 interface ISkillPageData{
     isPageTwo: boolean;
@@ -44,4 +45,22 @@ export const SkillsPageWrapper = styled.div<ISkillPageData>`
         top: 75px;
         float: center;
     }
+    
+    /*RWD max-width: 360px - BEGING*/
+    @media (${widths.mobileSmall}){
+        padding: 30px 5px 10px;
+        .percentWrapper{
+            top: 35px;
+            font-size: 16px;
+        }
+        .nameWrapper{
+            font-size: 14px;
+        }
+        img{
+            width: 35px;
+            height: 35px;
+            top: 60px;
+        }
+    }
+    /*RWD max-width: 360px - END*/
 `;

@@ -70,55 +70,39 @@ export const HomePageWrapper = styled.div`
             animation: btn-beat-animation 2s ease-in-out infinite both;
         } 
     }
-    /*RWD max-width: 360px - BEGING*/
-    @media (${widths.mobileSmall}){
+    /*RWD max-width: 0px - 480px - BEGING*/
+    @media (${widths.mobileLarge}){
         padding: 20px 10px 15px;
         flex-direction: column;
-    }
-    .img-background{
-        @media (${widths.mobileSmall}){
+        .img-background{
             width: 59vw;
             height: 59vw;
         }
-    }
-    img{
-        @media (${widths.mobileSmall}){
+        img{
             width: 56vw;
             height: 56vw;
         }
-    }
-    .about-me-description{
-        @media (${widths.mobileSmall}){
+        .about-me-description{
             width: 90vw;
             margin: 10px 0;
             text-align: center;
-        }
-        h1{
-            @media (${widths.mobileSmall}){
+            h1{
                 font-size: 35px;
             }
-        }
-        h4{
-            @media (${widths.mobileSmall}){
+            h4{
                 font-size: 18px;
                 margin-bottom: 15px;
             }
-        }
-        p{
-            @media (${widths.mobileSmall}){
+            p{
                 font-size: 14px;
                 margin-top: 10px;
             }
         }
-    }
-    .cv-and-contact-buttons{
-        @media (${widths.mobileSmall}){
+        .cv-and-contact-buttons{
             display: flex;
             justify-content: center;
             align-items: center;
-        }
-        button{
-            @media (${widths.mobileSmall}){
+            button{
                 width: 100px;
                 height: 30px;
                 font-weight: 300;
@@ -126,7 +110,7 @@ export const HomePageWrapper = styled.div`
             }
         }
     }
-    /*RWD max-width: 360px - END*/
+    /*RWD max-width: 0px - 480px - END*/
 
     /* Animations - BEGIN */
     @keyframes pulsate-fwd {

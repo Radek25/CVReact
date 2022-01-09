@@ -61,10 +61,10 @@ export const MainPage: FC = () =>{
            >
                 <HomePage/>
                 <PortfolioPage isPageOne={isPageOne}/>
-                <SkillsPage isPageTwo={isPageTwo}/>
+                <SkillsPage isPageTwo={isPageTwo} pageWidth={pageWidth}/>
                 <ContactPage isPageThree={isPageThree}/>
             </ReactPageScroller>
-            {pageWidth > 360 ? <SocialMedia/> : null}
+            {pageWidth > 480 ? <SocialMedia/> : null}
         </MainPageWrapper>
     );
 };

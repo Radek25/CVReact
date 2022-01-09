@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { colors } from "../../styledHelpers/colors";
+import { widths } from "../../styledHelpers/widths";
 
 interface IContactWrapperData{
-    isPageThree: boolean
+    isPageThree: boolean;
 }
 
 
@@ -83,6 +84,26 @@ export const ContactPageWrapper = styled.div<IContactWrapperData>`
     .form-submit-input:hover{
         cursor: pointer;
     }
+
+    /*RWD max-width: 360px - BEGING*/
+    @media (${widths.mobileSmall}){
+        padding: 30px 10px 10px;
+        .form-name-input{
+            width: 90vw;
+        }
+        .form-email-and-tel-input{
+            width: 90vw;
+            input{
+                width: 40vw;
+            }
+        }
+        textarea{
+            width: 90vw;
+        }
+    }
+    /*RWD max-width: 360px - END*/
+
+    /*Animations - BEGIN*/
     @keyframes tracking-in-contract {
         0% {
             letter-spacing: 1em;
@@ -176,4 +197,5 @@ export const ContactPageWrapper = styled.div<IContactWrapperData>`
             opacity: 1;
         }
     }
+    /*Animations - END*/
 `;

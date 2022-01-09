@@ -20,7 +20,7 @@ export const NavBar: FC<IPageData> = (props) =>{
 
     return(
         <NavBarWrapper isHamburgerMenuUsed={isHamburgerMenuUsed} isHamburgerMenuOpen={isHamburgerMenuOpen} isHamburgerMenuClose={isHamburgerMenuClose}>
-            {props.pageWidth <= 360 ? 
+            {props.pageWidth <= 480 ? 
                 <button className="burger-menu-btn" onClick={() => setHamburgerBtnUsed(true)}>
                     {
                         isHamburgerMenuOpen === false? 
@@ -35,7 +35,7 @@ export const NavBar: FC<IPageData> = (props) =>{
             </NavBarLeftSideContainer>
             <NavListMenu setPageIndex={props.setPageIndex} pageIndex={props.pageIndex}/>
             <DotsList setPageIndex={props.setPageIndex} pageIndex={props.pageIndex}/>
-            {props.pageWidth <= 360 ? <SocialMedia/> : null}
+            {props.pageWidth <= 480 ? <SocialMedia/> : null}
         </NavBarWrapper>
     );
 };

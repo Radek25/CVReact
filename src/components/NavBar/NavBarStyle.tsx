@@ -19,8 +19,25 @@ export const NavBarWrapper = styled.div<INavBarData>`
     align-items: center;
     background-color: ${colors.navbarBackgroundColor};
     z-index: 1;
-    /*RWD max-width: 360px - BEGING*/
-    @media (${widths.mobileSmall}){
+    .burger-menu-btn{
+        position: absolute;
+        top: 10px;
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 6vw;
+        color: ${colors.mainFontColor};
+        outline: none;
+        border: none;
+        ${(props) => props.isHamburgerMenuOpen === true? 'right: 20px;' : 'left: -40px;'}
+        .fa-bars{
+            display: ${(props) => props.isHamburgerMenuOpen === true ? 'none;' : 'flex;'}
+            ${(props) => (props.isHamburgerMenuUsed === true && props.isHamburgerMenuOpen === false) ? 'animation: scale-in-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s both' : null}
+        }
+    }
+    /*RWD max-width: 0px - 480px - BEGING*/
+    @media (${widths.mobileLarge}){
         width: 180px;
         height: 100vh;
         flex-direction: column;
@@ -29,25 +46,8 @@ export const NavBarWrapper = styled.div<INavBarData>`
         right: -180px;
         ${(props) => (props.isHamburgerMenuUsed === true && props.isHamburgerMenuOpen === true) ? 'animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both; right: 0;': null}
         ${(props) => (props.isHamburgerMenuUsed === true && props.isHamburgerMenuClose === true) ? 'animation: slide-left-back 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both; right: -180px;' : null}
-        .burger-menu-btn{
-            position: absolute;
-            top: 10px;
-            ${(props) => props.isHamburgerMenuOpen === true? 'right: 20px;' : 'left: -40px;'}
-            background-color: transparent;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 20px;
-            color: ${colors.mainFontColor};
-            outline: none;
-            border: none;
-            .fa-bars{
-                display: ${(props) => props.isHamburgerMenuOpen === true ? 'none;' : 'flex;'}
-                ${(props) => (props.isHamburgerMenuUsed === true && props.isHamburgerMenuOpen === false) ? 'animation: scale-in-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s both' : null}
-            }
-        }
     }
-    /*RWD max-width: 360px - END/
+    /*RWD max-width: 0px - 480px - END/
 
     /*Animation - BEGIN*/
     @keyframes slide-left {
@@ -85,13 +85,13 @@ export const NavBarLeftSideContainer = styled.div`
     span{
         margin: 0 8px;
         color: ${colors.mainFontColor};
-        font-size: 14px;
+        font-size: 16px;
         letter-spacing: 1.5px;
     }
-    /*RWD max-width: 360px - BEGING*/
-    @media (${widths.mobileSmall}){
+    /*RWD max-width: 0px - 480px - BEGING*/
+    @media (${widths.mobileLarge}){
         min-width: 126px;
         min-height: 35px;
     }
-    /*RWD max-width: 360px - END*/
+    /*RWD max-width: 0px - 480px - END*/
 `;

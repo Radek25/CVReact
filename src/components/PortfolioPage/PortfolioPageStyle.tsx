@@ -43,7 +43,7 @@ export const PortfolioPageWrapper = styled.div<IPortfolioPageData>`
     }
 
     /*RWD max-width: 360px - BEGING*/
-    @media (${widths.mobileSmall}){
+    @media (${widths.mobileLarge}){
         padding: 35px 5px 15px;
     }
     /*RWD max-width: 360px - END*/
@@ -104,15 +104,15 @@ export const AppsLogoWrapper = styled.div<IPortfolioPageData>`
         cursor: pointer;
     }
 
-    /*RWD max-width: 360px - BEGING*/
-    @media (${widths.mobileSmall}){
+    /*RWD max-width: 0px - 480px - BEGING*/
+    @media (${widths.mobileLarge}){
         width: 100%;
         max-height: 80vh;
         .app-logo{
             width: 45vw;
             height: 45vw;
             margin: 10px 5px;
-            flex: 2 0 42%;
+            flex: 2 0 45%;
             .app-logo-text-icons-wrapper{
                 width: 45vw;
                 height: 45vw;
@@ -127,7 +127,7 @@ export const AppsLogoWrapper = styled.div<IPortfolioPageData>`
             }
         }
     }
-    /*RWD max-width: 360px - END*/
+    /*RWD max-width: 0px - 480px - END*/
 
     /*Animations - BEGIN*/
     @keyframes rotate-in-ver {

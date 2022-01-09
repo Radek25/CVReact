@@ -14,6 +14,7 @@ import StyledComponents_logo from '../imgs/skillsLogo/SC-logo.png'
 import CSharp_logo from '../imgs/skillsLogo/CSharp-logo.png'
 interface ICurrentPage{
     isPageTwo: boolean;
+    pageWidth: number;
 }
 
 let SkillsArray = [
@@ -34,7 +35,7 @@ export const SkillsPage: FC<ICurrentPage> = (props) => {
          <ProgressBar
             key={SkillsData.id}
             className='progress-bars'
-            radius={65}
+            radius={props.pageWidth <=360 ? 45 : 65}
             progress={SkillsData.progress}
             cut={120}
             rotate={-210}

@@ -11,7 +11,7 @@ export const DotsListWrapper = styled.div<IPageNumber>`
     top: 40%;
     right: 20px;
     text-align: center;
-    @media (max-width: 360px){
+    @media (max-width: 480px){
         display: none;
         //Do przemyślenia czy mają być kropki czy nie!
         /* right: 85px;

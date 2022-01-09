@@ -60,8 +60,8 @@ export const SocialMediaWrapper = styled.div`
         left: 1px;
     }
 
-    /*RWD max-width: 360px - BEGING*/
-    @media (${widths.mobileSmall}){
+    /*RWD max-width: 0px - 480px - BEGING*/
+    @media (${widths.mobileLarge}){
         top: 93%;
         left: 0; 
         right: 0; 
@@ -70,56 +70,39 @@ export const SocialMediaWrapper = styled.div`
         justify-content: space-between;
         padding: 0 15px;
         animation: none;
-    }
-    i:after{
-        @media (${widths.mobileSmall}){
+        i:after{
             content: '';
             background-color: #ffffff;
             position: absolute;
             z-index: -1;
         }
-    }
-    .fa-facebook{
-        @media (${widths.mobileSmall}){
+        .fa-facebook{
             color: ${colors.facebookLogoColor};
         }
-    }
-
-    .fa-facebook:after{
-        @media (${widths.mobileSmall}){
+        .fa-facebook:after{
             width: 20px;
             height: 20px;
             bottom: 1px;
             left: 1px;
             border-radius: 100%;
         }
-    }
-    .fa-facebook-messenger{
-        @media (${widths.mobileSmall}){
+        .fa-facebook-messenger{
             color: ${colors.messengerLogoColor};
         }
-    }
-    .fa-facebook-messenger:after{
-        @media (${widths.mobileSmall}){
+        .fa-facebook-messenger:after{
             width: 20px;
             height: 20px;
             bottom: 1px;
             left: 1px;
             border-radius: 100%;
         }
-    }
-    .fa-github{
-        @media (${widths.mobileSmall}){
+        .fa-github{
             color: ${colors.githubLogoColor};
         }
-    }
-    .fa-linkedin{
-        @media (${widths.mobileSmall}){
+        .fa-linkedin{
             color: ${colors.linkedinLogoColor};
         }
-    }
-    .fa-linkedin:after{
-        @media (${widths.mobileSmall}){
+        .fa-linkedin:after{
             border-radius: 0px;
             width: 16px;
             height: 16px;
@@ -127,7 +110,8 @@ export const SocialMediaWrapper = styled.div`
             left: 1px;
         }
     }
-    /*RWD max-width: 360px - END*/
+   
+    /*RWD max-width: 0px - 480px - END*/
 
     /*Animations - BEGIN*/
     @keyframes slide-in-blurred-right {
