@@ -37,7 +37,7 @@ export const NavListMenuWrapper = styled.div<IPageNumber>`
         color: ${colors.mainFontColor};
     }
     /*RWD max-width: 0px - 480px - BEGING*/
-    @media (${widths.mobileLarge}){
+    @media (${widths.mobileMedium}){
         min-height: 165px;
         flex-direction: column;
         margin-top: 40px;

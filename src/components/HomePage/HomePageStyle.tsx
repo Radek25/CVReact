@@ -37,6 +37,7 @@ export const HomePageWrapper = styled.div`
             animation: tracking-in-expand 1.4s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
         }
         h4{
+            font-size: 20px;
             letter-spacing: 1px;
             color: #5c5c5c;
             margin-top: 0px;
@@ -53,7 +54,7 @@ export const HomePageWrapper = styled.div`
     }
     .cv-and-contact-buttons{
         button{
-            width: 150px;
+            width: 180px;
             height: 35px;
             border-radius: 20px;
             background-color: ${colors.mainYellowColor};
@@ -71,7 +72,7 @@ export const HomePageWrapper = styled.div`
         } 
     }
     /*RWD max-width: 0px - 480px - BEGING*/
-    @media (${widths.mobileLarge}){
+    @media (${widths.mobileMedium}){
         padding: 20px 10px 15px;
         flex-direction: column;
         .img-background{
@@ -111,6 +112,24 @@ export const HomePageWrapper = styled.div`
         }
     }
     /*RWD max-width: 0px - 480px - END*/
+    /*RWD max-width: 480px - 799px - BEGIN*/
+    @media (min-width: 481px) and (${widths.mobileLarge}){
+        padding: 20px 10px 15px;
+        flex-direction: column;
+        .img-background{
+            width: 65vw;
+            height: 65vw;
+        }
+        img{
+            width: 62vw;
+            height: 62vw;
+        }
+        .about-me-description{
+            width: 90vw;
+            text-align: center;
+        }
+    }
+    /*RWD max-width: 480px - 799px - END*/
 
     /* Animations - BEGIN */
     @keyframes pulsate-fwd {

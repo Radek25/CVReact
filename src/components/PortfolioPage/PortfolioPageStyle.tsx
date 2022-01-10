@@ -42,11 +42,11 @@ export const PortfolioPageWrapper = styled.div<IPortfolioPageData>`
         cursor: pointer;
     }
 
-    /*RWD max-width: 360px - BEGING*/
-    @media (${widths.mobileLarge}){
+    /*RWD max-width: 0px - 480px - BEGING*/
+    @media (${widths.mobileMedium}){
         padding: 35px 5px 15px;
     }
-    /*RWD max-width: 360px - END*/
+    /*RWD max-width: 0px - 480px - END*/
 `;
 export const AppsLogoWrapper = styled.div<IPortfolioPageData>`
     width: 90%;
@@ -105,18 +105,18 @@ export const AppsLogoWrapper = styled.div<IPortfolioPageData>`
     }
 
     /*RWD max-width: 0px - 480px - BEGING*/
-    @media (${widths.mobileLarge}){
+    @media (${widths.mobileMedium}){
         width: 100%;
         max-height: 80vh;
         .app-logo{
-            width: 45vw;
-            height: 45vw;
+            width: 44vw;
+            height: 44vw;
             margin: 10px 5px;
             flex: 2 0 45%;
             .app-logo-text-icons-wrapper{
-                width: 45vw;
-                height: 45vw;
-                padding: 5px;
+                width: 44vw;
+                height: 44vw;
+                padding: 5px 5px 10px;
                 p{
                     font-size: 3.3vw;
                     line-height: 1.2;

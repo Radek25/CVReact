@@ -61,7 +61,7 @@ export const SocialMediaWrapper = styled.div`
     }
 
     /*RWD max-width: 0px - 480px - BEGING*/
-    @media (${widths.mobileLarge}){
+    @media (${widths.mobileMedium}){
         top: 93%;
         left: 0; 
         right: 0; 

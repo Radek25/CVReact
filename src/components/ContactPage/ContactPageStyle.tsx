@@ -85,8 +85,8 @@ export const ContactPageWrapper = styled.div<IContactWrapperData>`
         cursor: pointer;
     }
 
-    /*RWD max-width: 360px - BEGING*/
-    @media (${widths.mobileSmall}){
+    /*RWD max-width: 0px - 480px - BEGING*/
+    @media (${widths.mobileMedium}){
         padding: 30px 10px 10px;
         .form-name-input{
             width: 90vw;
@@ -101,7 +101,42 @@ export const ContactPageWrapper = styled.div<IContactWrapperData>`
             width: 90vw;
         }
     }
-    /*RWD max-width: 360px - END*/
+    /*RWD max-width: 0px - 480px - END*/
+    /*RWD max-width: 480px - 800px - BEGING*/
+    @media (min-width: 481px) and (${widths.mobileLarge}){
+        padding: 30px 10px 10px;
+        span{
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+        label{
+            margin: 15px 0;
+        }
+        input, textarea{
+            font-size: 22px;
+        }
+        input{
+            height: 50px;
+        }
+        .form-name-input{
+            width: 80vw;
+        }
+        .form-email-and-tel-input{
+            width: 80vw;
+            input{
+                width: 35vw;
+            }
+        }
+        textarea{
+            width: 80vw;
+        }
+        .form-submit-input{
+            width: 200px;
+            height: 60px;
+            font-size: 30px;
+        }
+    }
+    /*RWD max-width: 480px - 800px - END*/
 
     /*Animations - BEGIN*/
     @keyframes tracking-in-contract {

@@ -89,7 +89,7 @@ export const NavBarLeftSideContainer = styled.div`
         letter-spacing: 1.5px;
     }
     /*RWD max-width: 0px - 480px - BEGING*/
-    @media (${widths.mobileLarge}){
+    @media (${widths.mobileMedium}){
         min-width: 126px;
         min-height: 35px;
     }

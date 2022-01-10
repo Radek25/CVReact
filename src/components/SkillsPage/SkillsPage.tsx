@@ -35,7 +35,7 @@ export const SkillsPage: FC<ICurrentPage> = (props) => {
          <ProgressBar
             key={SkillsData.id}
             className='progress-bars'
-            radius={props.pageWidth <=360 ? 45 : 65}
+            radius={props.pageWidth <=360 ? 43 : (props.pageWidth <= 480 ? 55 : 65)}
             progress={SkillsData.progress}
             cut={120}
             rotate={-210}

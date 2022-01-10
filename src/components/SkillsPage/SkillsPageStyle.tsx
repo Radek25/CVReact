@@ -63,4 +63,21 @@ export const SkillsPageWrapper = styled.div<ISkillPageData>`
         }
     }
     /*RWD max-width: 360px - END*/
+    /*RWD max-width: 480px - BEGING*/
+    @media (min-width: 361px) and (${widths.mobileMedium}){
+        padding: 30px 5px 10px;
+        .percentWrapper{
+            top: 40px;
+            font-size: 16px;
+        }
+        .nameWrapper{
+            font-size: 14px;
+        }
+        img{
+            width: 45px;
+            height: 45px;
+            top: 65px;
+        }
+    }
+    /*RWD max-width: 480px - END*/
 `;
