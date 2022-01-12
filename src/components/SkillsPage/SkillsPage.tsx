@@ -35,14 +35,14 @@ export const SkillsPage: FC<ICurrentPage> = (props) => {
          <ProgressBar
             key={SkillsData.id}
             className='progress-bars'
-            radius={props.pageWidth <=360 ? 43 : (props.pageWidth <= 480 ? 55 : 65)}
+            radius={props.pageWidth <=360 ? 40 : (props.pageWidth <= 480 ? 50 : (props.pageWidth <= 760 ? 60 : (props.pageWidth <= 1024 ? 80 : 65)))}
             progress={SkillsData.progress}
             cut={120}
             rotate={-210}
-            strokeWidth={10}
+            strokeWidth={props.pageWidth <=360 ? 8 : (props.pageWidth <= 480 ? 9 : (props.pageWidth <= 760 ? 10 : (props.pageWidth <= 1024 ? 14 : 10)))}
             strokeColor="#f4ac34"
             strokeLinecap="round"
-            trackStrokeWidth={10}
+            trackStrokeWidth={props.pageWidth <=360 ? 8 : (props.pageWidth <= 480 ? 9 : (props.pageWidth <= 760 ? 10 : (props.pageWidth <= 1024 ? 14 : 10)))}
             trackStrokeColor="#363636"
             trackStrokeLinecap="round"
             pointerRadius={0}

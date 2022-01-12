@@ -12,9 +12,6 @@ export const DotsListWrapper = styled.div<IPageNumber>`
     top: 40%;
     right: 20px;
     text-align: center;
-    @media (${widths.mobileLarge}){
-        display: none;
-    }
     ul{
         padding: 0;
         margin: 0;
@@ -45,7 +42,19 @@ export const DotsListWrapper = styled.div<IPageNumber>`
         animation: scale-in-center 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     }
 
+    /*========================*/
+    /*RWD 0px - 1024px - BEGIN*/
+    /*========================*/
+    @media (${widths.tabletsSize}){
+        display: none;
+    }
+    /*========================*/
+    /*RWD 0px - 1024px - END*/
+    /*========================*/
+
+    /*==================*/
     /*Animations - BEGIN*/
+    /*==================*/
     @keyframes scale-in-center {
         0% {
             transform: scale(0);
@@ -56,5 +65,7 @@ export const DotsListWrapper = styled.div<IPageNumber>`
             opacity: 1;
         }
     }
+    /*==================*/
     /*Animations - END*/
+    /*==================*/
 `;

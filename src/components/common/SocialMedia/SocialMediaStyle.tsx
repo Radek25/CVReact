@@ -60,15 +60,54 @@ export const SocialMediaWrapper = styled.div`
         left: 1px;
     }
 
-    /*RWD max-width: 0px - 480px - BEGING*/
+    /*========================*/
+    /*RWD 0px - 480px - BEGING*/
+    /*========================*/
     @media (${widths.mobileMedium}){
+        i{
+            font-size: 26px;
+        }
+    }
+    /*=====================*/
+    /*RWD 0px - 480px - END*/
+    /*=====================*/
+
+    /*==========================*/
+    /*RWD 481px - 760px - BEGING*/
+    /*==========================*/
+    @media (min-width: 481px) and (${widths.mobileLarge}){
+        i{
+            font-size: 35px;
+        }
+    }
+    /*=======================*/
+    /*RWD 481px - 760px - END*/
+    /*=======================*/
+
+    /*===========================*/
+    /*RWD 761px - 1024px - BEGING*/
+    /*===========================*/
+    @media (min-width: 761px) and (${widths.tabletsSize}){
+        padding: 0 30px !important;
+        i{
+            font-size: 44px;
+        }
+    }
+    /*========================*/
+    /*RWD 761px - 1024px - END*/
+    /*========================*/
+
+    /*=========================*/
+    /*RWD 0px - 1024px - BEGING*/
+    /*=========================*/
+    @media (min-width: 0px) and (${widths.tabletsSize}){
         top: 93%;
         left: 0; 
         right: 0; 
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 15px;
+        padding: 0 10px;
         animation: none;
         i:after{
             content: '';
@@ -80,21 +119,23 @@ export const SocialMediaWrapper = styled.div`
             color: ${colors.facebookLogoColor};
         }
         .fa-facebook:after{
-            width: 20px;
-            height: 20px;
-            bottom: 1px;
-            left: 1px;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            left: 0;
             border-radius: 100%;
+            border: 3px solid ${colors.facebookLogoColor};
         }
         .fa-facebook-messenger{
             color: ${colors.messengerLogoColor};
         }
         .fa-facebook-messenger:after{
-            width: 20px;
-            height: 20px;
-            bottom: 1px;
-            left: 1px;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            left: 0;
             border-radius: 100%;
+            border: 3px solid ${colors.messengerLogoColor};
         }
         .fa-github{
             color: ${colors.githubLogoColor};
@@ -104,16 +145,21 @@ export const SocialMediaWrapper = styled.div`
         }
         .fa-linkedin:after{
             border-radius: 0px;
-            width: 16px;
-            height: 16px;
+            width: 90%;
+            height: 80%;
+            box-sizing: border-box;
+            border: 3px solid ${colors.linkedinLogoColor};
             top: 2px;
             left: 1px;
         }
     }
-   
-    /*RWD max-width: 0px - 480px - END*/
+    /*======================*/
+    /*RWD 0px - 1024px - END*/
+    /*======================*/
 
-    /*Animations - BEGIN*/
+    /*====================*/
+    /* Animations - BEGIN */
+    /*====================*/
     @keyframes slide-in-blurred-right {
         0% {
             transform: translateX(1000px) scaleX(2.5) scaleY(0.2);
@@ -126,5 +172,7 @@ export const SocialMediaWrapper = styled.div`
             opacity: 1;
         }
     }
-    /*Animations - END*/
+    /*==================*/
+    /* Animations - END */
+    /*==================*/
 `;

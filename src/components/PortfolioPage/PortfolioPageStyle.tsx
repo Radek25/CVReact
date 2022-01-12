@@ -42,11 +42,42 @@ export const PortfolioPageWrapper = styled.div<IPortfolioPageData>`
         cursor: pointer;
     }
 
-    /*RWD max-width: 0px - 480px - BEGING*/
-    @media (${widths.mobileMedium}){
+    /*========================*/
+    /*RWD 0px - 760px - BEGING*/
+    /*========================*/
+    @media (${widths.mobileLarge}){
         padding: 35px 5px 15px;
     }
-    /*RWD max-width: 0px - 480px - END*/
+    /*======================*/
+    /*RWD: 0px - 760px - END*/
+    /*======================*/
+
+    /*==========================*/
+    /*RWD 481px - 1024px - BEGIN*/
+    /*==========================*/
+    @media (min-width: 481px) and (${widths.tabletsSize}){
+        button{
+            width: 42vw;
+            height: 10vw;
+            font-size: 3vw;
+            animation: btn-beat-animation 2s ease-in-out infinite both;
+        }
+    }
+    /*========================*/
+    /*RWD 481px - 1024px - END*/
+    /*========================*/
+
+    /*=========================*/
+    /*RWD 0px - 1024px - BEGING*/
+    /*=========================*/
+    @media (${widths.tabletsSize}){
+        button{
+            animation: btn-beat-animation 2s ease-in-out infinite both;
+        }
+    }   
+    /*======================*/
+    /*RWD 0px - 1024px - END*/
+    /*======================*/
 `;
 export const AppsLogoWrapper = styled.div<IPortfolioPageData>`
     width: 90%;
@@ -55,17 +86,17 @@ export const AppsLogoWrapper = styled.div<IPortfolioPageData>`
     flex-wrap: wrap;
     justify-content: space-between;
     .app-logo{
-        width: 250px;
-        height: 250px;
+        width: 18vw;
+        height: 18vw;
         margin: 10px;
         position: relative;
         display: flex;
         justify-content: center;
-        flex: 1 0 20%;
+        flex-basis: 20%;
         ${(props) => props.isPageOne === true? 'animation: rotate-in-ver 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1 5ms both;' : 'none'}
         .app-logo-text-icons-wrapper{
-            width: 250px;
-            height: 250px;
+            width: 18vw;
+            height: 18vw;
             padding: 10px;
             display: flex;
             flex-direction: column;
@@ -104,32 +135,35 @@ export const AppsLogoWrapper = styled.div<IPortfolioPageData>`
         cursor: pointer;
     }
 
-    /*RWD max-width: 0px - 480px - BEGING*/
-    @media (${widths.mobileMedium}){
-        width: 100%;
-        max-height: 80vh;
+    /*=========================*/
+    /*RWD 0px - 1024px - BEGING*/
+    /*=========================*/
+    @media (${widths.tabletsSize}){
         .app-logo{
-            width: 44vw;
-            height: 44vw;
-            margin: 10px 5px;
-            flex: 2 0 45%;
+            width: 36vw;
+            height: 36vw;
+            flex-basis: 36vw;
             .app-logo-text-icons-wrapper{
-                width: 44vw;
-                height: 44vw;
-                padding: 5px 5px 10px;
+                width: 36vw;
+                height: 36vw;
+                padding: 2px 2px 5px;
                 p{
-                    font-size: 3.3vw;
-                    line-height: 1.2;
+                    font-size: 3vw;
+                    line-height: 1;
                 }
                 i{
                     font-size: 6.5vw;
                 }
             }
         }
-    }
-    /*RWD max-width: 0px - 480px - END*/
+    }   
+    /*======================*/
+    /*RWD 0px - 1024px - END*/
+    /*======================*/
 
-    /*Animations - BEGIN*/
+    /*====================*/
+    /* Animations - BEGIN */
+    /*====================*/
     @keyframes rotate-in-ver {
         0% {
             transform: rotateY(-180deg);
@@ -179,5 +213,7 @@ export const AppsLogoWrapper = styled.div<IPortfolioPageData>`
             animation-timing-function: ease-out;
         }
     }
-    /*Animations - END*/
+    /*==================*/
+    /* Animations - END */
+    /*==================*/
 `;

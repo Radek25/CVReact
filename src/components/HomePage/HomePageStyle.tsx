@@ -71,7 +71,10 @@ export const HomePageWrapper = styled.div`
             animation: btn-beat-animation 2s ease-in-out infinite both;
         } 
     }
-    /*RWD max-width: 0px - 480px - BEGING*/
+
+    /*========================*/
+    /*RWD 0px - 480px - BEGING*/
+    /*========================*/
     @media (${widths.mobileMedium}){
         padding: 20px 10px 15px;
         flex-direction: column;
@@ -88,15 +91,16 @@ export const HomePageWrapper = styled.div`
             margin: 10px 0;
             text-align: center;
             h1{
-                font-size: 35px;
+                font-size: 30px;
             }
             h4{
-                font-size: 18px;
-                margin-bottom: 15px;
+                font-size: 16px;
+                margin-bottom: 5px;
             }
             p{
                 font-size: 14px;
                 margin-top: 10px;
+                line-height: 1.4;
             }
         }
         .cv-and-contact-buttons{
@@ -104,34 +108,119 @@ export const HomePageWrapper = styled.div`
             justify-content: center;
             align-items: center;
             button{
-                width: 100px;
-                height: 30px;
-                font-weight: 300;
+                width: 120px;
+                height: 35px;
+                font-weight: 400;
+                font-size: 16px;
                 margin: 0 10px;
             }
         }
     }
-    /*RWD max-width: 0px - 480px - END*/
-    /*RWD max-width: 480px - 799px - BEGIN*/
+    /*=====================*/
+    /*RWD 0px - 480px - END*/
+    /*=====================*/
+
+    /*=========================*/
+    /*RWD 481px - 760px - BEGIN*/
+    /*=========================*/
     @media (min-width: 481px) and (${widths.mobileLarge}){
-        padding: 20px 10px 15px;
+        padding: 30px 10px 10px;
         flex-direction: column;
         .img-background{
-            width: 65vw;
-            height: 65vw;
+            width: 45vw;
+            height: 45vw;
         }
         img{
-            width: 62vw;
-            height: 62vw;
+            width: 42vw;
+            height: 42vw;
         }
         .about-me-description{
-            width: 90vw;
+            width: 70vw;
+            margin: 5px 0;
             text-align: center;
+            h1{
+                font-size: 44px;
+                margin-top: 10px;
+            }
+            h4{
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+            p{
+                font-size: 16px;
+                margin-top: 10px;
+                line-height: 1.4;
+            }
+        }
+        .cv-and-contact-buttons{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            button{
+                width: 130px;
+                height: 35px;
+                font-weight: 400;
+                font-size: 18px;
+                margin: 0 10px;
+            }
         }
     }
-    /*RWD max-width: 480px - 799px - END*/
+    /*=======================*/
+    /*RWD 481px - 760px - END*/
+    /*=======================*/
+   
+    /*==========================*/
+    /*RWD 761px - 1024px - BEGIN*/
+    /*==========================*/
+    @media (min-width: 761px) and (${widths.tabletsSize}){
+        padding: 40px 10px 10px;
+        flex-direction: column;
+        .img-background{
+            width: 40vw;
+            height: 40vw;
+        }
+        img{
+            width: 37vw;
+            height: 37vw;
+        }
+        .about-me-description{
+            width: 80vw;
+            margin: 10px 0;
+            text-align: center;
+            h1{
+                font-size: 60px;
+                margin-top: 10px;
+            }
+            h4{
+                font-size: 32px;
+                margin-bottom: 15px;
+            }
+            p{
+                font-size: 25px;
+                margin-top: 10px;
+                line-height: 1.6;
+            }
+        }
+        .cv-and-contact-buttons{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            button{
+                width: 30vw;
+                height: 7vw;
+                font-weight: 550;
+                font-size: 20px;
+                margin: 0 20px;
+            }
+        }
+    }
+    /*========================*/
+    /*RWD 761px - 1024px - END*/
+    /*========================*/
 
+    /*====================*/
     /* Animations - BEGIN */
+    /*====================*/
     @keyframes pulsate-fwd {
         0% {
             transform: scale(1);
@@ -190,5 +279,7 @@ export const HomePageWrapper = styled.div`
             animation-timing-function: ease-out;
         }
     }
+    /*==================*/
     /* Animations - END */
+    /*==================*/
 `;

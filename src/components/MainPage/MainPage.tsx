@@ -34,8 +34,6 @@ export const MainPage: FC = () =>{
     let [isPageTwo, setViewPageTwo] = useState(false);
     let [isPageThree, setViewPageThree] = useState(false);
 
-    let [isHamburgerActive, setHamburgerBtn] = useState(false);
-
     const pageWidth = GetWindowWidth();
 
     return(
@@ -64,7 +62,7 @@ export const MainPage: FC = () =>{
                 <SkillsPage isPageTwo={isPageTwo} pageWidth={pageWidth}/>
                 <ContactPage isPageThree={isPageThree}/>
             </ReactPageScroller>
-            {pageWidth > 800 ? <SocialMedia/> : null}
+            {pageWidth > 1024 ? <SocialMedia/> : null}
         </MainPageWrapper>
     );
 };

@@ -10,7 +10,9 @@ interface IPageNumber{
 export const NavListMenu: FC<IPageNumber> = (props) =>{
     return(
         <NavListMenuWrapper pageIndex={props.pageIndex}>
+            <ul>
             {navOptions.map(option => <li onClick={() => props.setPageIndex(option.id)} key={option.id}>{option.name}</li>)}
+            </ul>
         </NavListMenuWrapper>
     );
 };

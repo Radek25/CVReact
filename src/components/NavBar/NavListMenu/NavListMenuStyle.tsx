@@ -36,14 +36,61 @@ export const NavListMenuWrapper = styled.div<IPageNumber>`
         cursor: pointer;
         color: ${colors.mainFontColor};
     }
-    /*RWD max-width: 0px - 480px - BEGING*/
+
+    /*========================*/
+    /*RWD 0px - 480px - BEGING*/
+    /*========================*/
     @media (${widths.mobileMedium}){
-        min-height: 165px;
-        flex-direction: column;
         margin-top: 40px;
         li{
             font-size: 5vw;
         }
     }
-    /*RWD max-width: 0px - 480px - END*/
+    /*=====================*/
+    /*RWD 0px - 480px - END*/
+    /*=====================*/
+
+    /*==========================*/
+    /*RWD 481px - 760px - BEGING*/
+    /*==========================*/
+    @media (min-width: 481px) and (${widths.mobileLarge}){
+        margin-top: 50px;
+        li{
+            font-size: 5vw;
+        }
+    }
+    /*=======================*/
+    /*RWD 481px - 760px - END*/
+    /*=======================*/
+
+    /*===========================*/
+    /*RWD 761px - 1024px - BEGING*/
+    /*===========================*/
+    @media (min-width: 761px) and (${widths.tabletsSize}){
+        margin-top: 55px;
+        ul{
+            flex-direction: column;
+        }
+        li{
+            font-size: 4.5vw;
+        }
+    }
+    /*========================*/
+    /*RWD 761px - 1024px - END*/
+    /*========================*/
+
+    /*=========================*/
+    /*RWD 0px - 1024px - BEGING*/
+    /*=========================*/
+    @media (min-width: 0px) and (${widths.tabletsSize}){
+        min-height: 165px;
+        ul{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+    /*======================*/
+    /*RWD 0px - 1024px - END*/
+    /*======================*/
 `;

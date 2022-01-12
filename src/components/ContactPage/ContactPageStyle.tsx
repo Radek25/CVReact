@@ -85,7 +85,9 @@ export const ContactPageWrapper = styled.div<IContactWrapperData>`
         cursor: pointer;
     }
 
-    /*RWD max-width: 0px - 480px - BEGING*/
+    /*========================*/
+    /*RWD 0px - 480px - BEGING*/
+    /*========================*/
     @media (${widths.mobileMedium}){
         padding: 30px 10px 10px;
         .form-name-input{
@@ -101,9 +103,14 @@ export const ContactPageWrapper = styled.div<IContactWrapperData>`
             width: 90vw;
         }
     }
-    /*RWD max-width: 0px - 480px - END*/
-    /*RWD max-width: 480px - 800px - BEGING*/
-    @media (min-width: 481px) and (${widths.mobileLarge}){
+    /*=====================*/
+    /*RWD 0px - 480px - END*/
+    /*=====================*/
+
+    /*===========================*/
+    /*RWD 481px - 1024px - BEGING*/
+    /*===========================*/
+    @media (min-width: 481px) and (${widths.tabletsSize}){
         padding: 30px 10px 10px;
         span{
             font-size: 50px;
@@ -136,9 +143,13 @@ export const ContactPageWrapper = styled.div<IContactWrapperData>`
             font-size: 30px;
         }
     }
-    /*RWD max-width: 480px - 800px - END*/
+    /*========================*/
+    /*RWD 481px - 1024px - END*/
+    /*========================*/
 
-    /*Animations - BEGIN*/
+    /*====================*/
+    /* Animations - BEGIN */
+    /*====================*/
     @keyframes tracking-in-contract {
         0% {
             letter-spacing: 1em;
@@ -232,5 +243,7 @@ export const ContactPageWrapper = styled.div<IContactWrapperData>`
             opacity: 1;
         }
     }
-    /*Animations - END*/
+    /*==================*/
+    /* Animations - END */
+    /*==================*/
 `;

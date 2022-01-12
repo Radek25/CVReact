@@ -19,8 +19,8 @@ export const NavBar: FC<IPageData> = (props) =>{
     let [isHamburgerMenuClose, setHamburgerBtnClose] = useState(true);
 
     return(
-        <NavBarWrapper isHamburgerMenuUsed={isHamburgerMenuUsed} isHamburgerMenuOpen={isHamburgerMenuOpen} isHamburgerMenuClose={isHamburgerMenuClose}>
-            {props.pageWidth <= 800 ? 
+        <NavBarWrapper isHamburgerMenuUsed={isHamburgerMenuUsed} isHamburgerMenuOpen={isHamburgerMenuOpen} isHamburgerMenuClose={isHamburgerMenuClose} pageWidth={props.pageWidth}>
+            {props.pageWidth <= 1024 ? 
                 <button className="burger-menu-btn" onClick={() => setHamburgerBtnUsed(true)}>
                     {
                         isHamburgerMenuOpen === false? 
@@ -30,12 +30,18 @@ export const NavBar: FC<IPageData> = (props) =>{
                 </button> : null
             }
             <NavBarLeftSideContainer>
-                <Avatar sx={{width: 33, height: 33 ,bgcolor: `${colors.mainYellowColor}`}}>R</Avatar>
+                <Avatar 
+                className="avatar"
+                sx={{
+                    width: (props.pageWidth <= 360 || props.pageWidth > 1024 ? 33 : (props.pageWidth < 480 ? 36 : 53)), 
+                    height: (props.pageWidth <= 360 || props.pageWidth > 1024 ? 33 : (props.pageWidth < 480 ? 36 : 53)), 
+                    bgcolor: `${colors.mainYellowColor}`}}>R
+                </Avatar>
                 <span><b>Radek</b> Kot</span>
             </NavBarLeftSideContainer>
             <NavListMenu setPageIndex={props.setPageIndex} pageIndex={props.pageIndex}/>
             <DotsList setPageIndex={props.setPageIndex} pageIndex={props.pageIndex}/>
-            {props.pageWidth <= 800 ? <SocialMedia/> : null}
+            {props.pageWidth <= 1024 ? <SocialMedia/> : null}
         </NavBarWrapper>
     );
 };
