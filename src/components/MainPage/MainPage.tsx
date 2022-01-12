@@ -8,6 +8,8 @@ import { ContactPage } from "../ContactPage/ContactPage";
 import { SocialMedia } from "../common/SocialMedia/SocialMedia";
 import ReactPageScroller from 'react-page-scroller';
 
+import CodeCat from '../imgs/codeCat.gif'
+
 export const navOptions = [
     {id: 0, name: 'Home'},
     {id: 1, name: 'Portfolio'}, 
@@ -27,6 +29,18 @@ function GetWindowWidth() {
     return windowWidth;
 }
 
+function GetWindowHeight() {
+    const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+    useEffect(() => {
+        function handleResize() {
+            setWindowHeight(window.innerHeight);
+        }
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    });
+    return windowHeight;
+}
+
  
 export const MainPage: FC = () =>{
     let [pageIndex, setPageIndex] = useState(0);
@@ -35,34 +49,51 @@ export const MainPage: FC = () =>{
     let [isPageThree, setViewPageThree] = useState(false);
 
     const pageWidth = GetWindowWidth();
-
-    return(
-        <MainPageWrapper>
-            <NavBar pageIndex={pageIndex} setPageIndex={setPageIndex} pageWidth={pageWidth}/>
-            <ReactPageScroller 
-                onBeforePageScroll={(pageIndex) => {
-                    setPageIndex(pageIndex); 
-                    if(pageIndex == 1){
-                        setViewPageOne(true)
-                    }
-                    else if(pageIndex == 2){
-                        setViewPageTwo(true)
-                    }
-                    else if(pageIndex == 3){
-                        setViewPageThree(true)
-                    }
-                }} 
-                renderAllPagesOnFirstRender={true} 
-                customPageNumber={pageIndex} 
-                animationTimer={500} 
-                animationTimerBuffer={0}
-           >
-                <HomePage/>
-                <PortfolioPage isPageOne={isPageOne}/>
-                <SkillsPage isPageTwo={isPageTwo} pageWidth={pageWidth}/>
-                <ContactPage isPageThree={isPageThree}/>
-            </ReactPageScroller>
-            {pageWidth > 1024 ? <SocialMedia/> : null}
-        </MainPageWrapper>
-    );
+    const pageHeight = GetWindowHeight();
+    if(pageWidth <= 1024 && pageHeight <= pageWidth)
+    {
+        return(
+            <MainPageWrapper>
+                <div className="websideInUpdate">
+                    <img src={CodeCat}/>
+                    <p>
+                        Niestety, strona w tej rodzielczości nie jest jeszcze dostępna &#128532;<br/>
+                        Ustaw urządzenie pionowo, aby wyświetlić stonę <i className="fas fa-mobile-alt"></i>
+                    </p>
+                </div>
+            </MainPageWrapper>
+        );
+    }
+    else
+    {
+        return(
+            <MainPageWrapper>
+                <NavBar pageIndex={pageIndex} setPageIndex={setPageIndex} pageWidth={pageWidth}/>
+                <ReactPageScroller 
+                    onBeforePageScroll={(pageIndex) => {
+                        setPageIndex(pageIndex); 
+                        if(pageIndex == 1){
+                            setViewPageOne(true)
+                        }
+                        else if(pageIndex == 2){
+                            setViewPageTwo(true)
+                        }
+                        else if(pageIndex == 3){
+                            setViewPageThree(true)
+                        }
+                    }} 
+                    renderAllPagesOnFirstRender={true} 
+                    customPageNumber={pageIndex} 
+                    animationTimer={500} 
+                    animationTimerBuffer={0}
+                >
+                    <HomePage/>
+                    <PortfolioPage isPageOne={isPageOne}/>
+                    <SkillsPage isPageTwo={isPageTwo} pageWidth={pageWidth}/>
+                    <ContactPage isPageThree={isPageThree}/>
+                </ReactPageScroller>
+                {pageWidth > 1024 ? <SocialMedia/> : null}
+            </MainPageWrapper>
+        );
+    }
 };
