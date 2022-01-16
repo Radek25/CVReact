@@ -3,8 +3,8 @@ import { colors } from "../../styledHelpers/colors";
 import { widths } from "../../styledHelpers/widths";
 
 interface IPortfolioPageData{
-    isPageOne: boolean
-    activeAppCard: number;
+    isPageOne: boolean;
+    activeModal: boolean;
 }
 
 export const PortfolioPageWrapper = styled.div<IPortfolioPageData>`
@@ -41,31 +41,129 @@ export const PortfolioPageWrapper = styled.div<IPortfolioPageData>`
     button:hover{
         cursor: pointer;
     }
+    .shadow-modal-wrapper{
+        position: absolute;
+        z-index: 5;
+        width: 100vw;
+        height: 100vh;
+        background-color: #111111fa;
+        ${(props) => props.activeModal? 'display: flex;' : 'display: none;'}
+        justify-content: center;
+        align-items: center;
+        .modal-message{
+            width: 40vw;
+            box-sizing: border-box;
+            padding: 40px 10px 20px;
+            position: relative;
+            background-color: #111111;
+            border-radius: 10px;
+            border: 2px solid ${colors.mainFontColor};
+            .fa-times{
+                position: absolute;
+                top: 10px;
+                right: 15px;
+                color: ${colors.mainFontColor};
+                font-size: 20px;
+                cursor: pointer;
+            }
+            p{
+                color: ${colors.mainFontColor};
+                font-size: 16px;
+                text-align: center;
+            }
+            span{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img{
+                    width: 15vw; //Zmienić bo na większych urządzenieach to strasznie duże
+                    height: 15vw;
+                    margin: 0 5px;
+                }
+            }
+        }
+    }
 
     /*========================*/
-    /*RWD 0px - 760px - BEGING*/
+    /*RWD 0px - 480px - BEGING*/
     /*========================*/
-    @media (${widths.mobileLarge}){
+    @media (${widths.mobileMedium}){
         padding: 35px 5px 15px;
+        .shadow-modal-wrapper{
+            .modal-message{
+                width: 90vw;
+                padding: 30px 15px 20px;
+                .fa-times{
+                    top: 5px;
+                    right: 10px;
+                    font-size: 6vw;
+                }
+                p{
+                    font-size: 14px;
+                }
+            }
+        }
     }
     /*======================*/
-    /*RWD: 0px - 760px - END*/
+    /*RWD: 0px - 480px - END*/
     /*======================*/
 
     /*==========================*/
-    /*RWD 481px - 1024px - BEGIN*/
+    /*RWD 481px - 760px - BEGING*/
     /*==========================*/
-    @media (min-width: 481px) and (${widths.tabletsSize}){
+    @media (min-width: 481px) and (${widths.mobileLarge}){
+        padding: 35px 5px 15px;
+        .shadow-modal-wrapper{
+            .modal-message{
+                width: 90vw;
+                padding: 50px 20px 20px;
+                .fa-times{
+                    top: 15px;
+                    right: 20px;
+                    font-size: 5.5vw;
+                }
+                p{
+                    font-size: 22px;
+                }
+            }
+        }
         button{
             width: 42vw;
             height: 10vw;
             font-size: 3vw;
-            animation: btn-beat-animation 2s ease-in-out infinite both;
         }
     }
     /*========================*/
-    /*RWD 481px - 1024px - END*/
+    /*RWD: 481px - 760px - END*/
     /*========================*/
+
+    /*===========================*/
+    /*RWD 761px - 1024px - BEGING*/
+    /*===========================*/
+    @media (min-width: 761px) and (${widths.tabletsSize}){
+        .shadow-modal-wrapper{
+            .modal-message{
+                width: 80vw;
+                padding: 70px 30px 20px;
+                .fa-times{
+                    top: 15px;
+                    right: 20px;
+                    font-size: 4.5vw;
+                }
+                p{
+                    font-size: 24px;
+                }
+            }
+        }
+        button{
+            width: 42vw;
+            height: 10vw;
+            font-size: 3vw;
+        }
+    }
+    /*=========================*/
+    /*RWD: 761px - 1024px - END*/
+    /*=========================*/
 
     /*=========================*/
     /*RWD 0px - 1024px - BEGING*/
@@ -79,6 +177,7 @@ export const PortfolioPageWrapper = styled.div<IPortfolioPageData>`
     /*RWD 0px - 1024px - END*/
     /*======================*/
 `;
+
 export const AppsLogoWrapper = styled.div<IPortfolioPageData>`
     width: 90%;
     height: auto;
@@ -94,45 +193,36 @@ export const AppsLogoWrapper = styled.div<IPortfolioPageData>`
         justify-content: center;
         flex-basis: 20%;
         ${(props) => props.isPageOne === true? 'animation: rotate-in-ver 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1 5ms both;' : 'none'}
-        .app-logo-text-icons-wrapper{
+        .app-logo-icons-wrapper{
             width: 18vw;
             height: 18vw;
             padding: 10px;
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
+            align-items: center;
             box-sizing: border-box;
             background-color: #111111ff;
             border-radius: 10px;
             position: absolute;
             color: ${colors.mainFontColor} ;
             opacity: 0;
-            p{
-                font-size: 14px;
-                line-height: 1.8;
-                text-align: center;
+            .fa-info-circle, .fa-play-circle, .fa-github{
+                cursor: pointer;
             }
-            .icons-wrapper{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding: 0;
-                text-align: center;
-                font-size: 30px;
-                i{
-                    padding: 0 10px;
-                }
-                i:hover{
-                    cursor: pointer;
-                }
+            .fa-info-circle{
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                font-size: 20px;
+            }
+            .fa-play-circle, .fa-github{
+                margin: 10px;
+                font-size: 50px;
             }
         }
-        .app-logo-text-icons-wrapper:hover{
+        .app-logo-icons-wrapper:hover{
             opacity: 1;
         }
-    }
-    .app-logo:hover{
-        cursor: pointer;
     }
 
     /*=========================*/
@@ -143,16 +233,17 @@ export const AppsLogoWrapper = styled.div<IPortfolioPageData>`
             width: 36vw;
             height: 36vw;
             flex-basis: 36vw;
-            .app-logo-text-icons-wrapper{
+            .app-logo-icons-wrapper{
                 width: 36vw;
                 height: 36vw;
                 padding: 2px 2px 5px;
-                p{
-                    font-size: 3vw;
-                    line-height: 1;
+                .fa-info-circle{
+                    top: 1.5vw;
+                    right: 1.5vw;
+                    font-size: 5vw;
                 }
-                i{
-                    font-size: 6.5vw;
+                .fa-play-circle, .fa-github{
+                    font-size: 10vw;
                 }
             }
         }

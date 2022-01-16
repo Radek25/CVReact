@@ -55,7 +55,7 @@ export const MainPage: FC = () =>{
         return(
             <MainPageWrapper>
                 <div className="websideInUpdate">
-                    <img src={CodeCat}/>
+                    <img src={CodeCat} alt="Coding cat GIF"/>
                     <p>
                         Niestety, strona w tej rodzielczości nie jest jeszcze dostępna &#128532;<br/>
                         Ustaw urządzenie pionowo, aby wyświetlić stonę <i className="fas fa-mobile-alt"></i>
@@ -88,7 +88,7 @@ export const MainPage: FC = () =>{
                     animationTimerBuffer={0}
                 >
                     <HomePage/>
-                    <PortfolioPage isPageOne={isPageOne}/>
+                    <PortfolioPage isPageOne={isPageOne} pageIndex={pageIndex}/>
                     <SkillsPage isPageTwo={isPageTwo} pageWidth={pageWidth}/>
                     <ContactPage isPageThree={isPageThree}/>
                 </ReactPageScroller>
