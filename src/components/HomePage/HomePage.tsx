@@ -2,7 +2,11 @@ import React, { FC }  from "react";
 import { HomePageWrapper } from "./HomePageStyle";
 import myPhoto from "./../imgs/myPhoto.png";
 
-export const HomePage: FC = () => {
+interface IHomeWebsideData{
+    setPageIndex: (pageIndex: number) => void;
+}
+
+export const HomePage: FC<IHomeWebsideData> = (props) => {
     return(
         <HomePageWrapper>
             <div className='img-background'>
@@ -17,8 +21,8 @@ export const HomePage: FC = () => {
                     Programowanie jest dla mnie jak łamigłówka, której rozwiązywanie sprawia przyjemności i uczy logicznego myślenia.
                 </p>
                 <div className="cv-and-contact-buttons">
-                    <a><button>Moje CV</button></a>
-                    <a><button>Kontakt</button></a>
+                    <a href="./../doc/Junior Front-End Developer.pdf" download="Radosław Kot - Junior Front-End Developer"><button>Moje CV</button></a>
+                    <button onClick={() => props.setPageIndex(3)}>Kontakt</button>
                 </div>
             </div>
         </HomePageWrapper>

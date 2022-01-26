@@ -18,15 +18,16 @@ import  WeatherApp from "../imgs/appsLogo/WeatherAppLogo.png";
 import  CVWebside  from "../imgs/appsLogo/CVWebsideLogo.png";
 
 const AppsCollection = [
-    {index: 1, src: DrumKit, text: 'Aplikacja powstała w oparciu o technologie: HTML, CSS, JavaScript. Poczas jej tworzenia skupiałem się na programowaniu obiektowym.', langList: [TS_logo, Webpack_logo, SASS_logo]},
-    {index: 2, src: CorpoApp, text: 'Tekst opisujący jak wykonałem apke itp', langList: [React_logo, Redux_logo, TS_logo, StyledComponents_logo]},
-    {index: 3, src: WeatherApp, text: 'Tekst opisujący jak wykonałem apke itp', langList: [HTML_logo, CSS_logo, JS_logo]},
-    {index: 4, src: CVWebside, text: 'Tekst opisujący jak wykonałem apke itp', langList: [HTML_logo, CSS_logo]}
+    {index: 1, src: DrumKit, text: 'DrumKit to symulator wirtualnej perkusji umożliwiający nie tylko na granie na instrumencie, ale także na nagrywanie oraz odtwarzanie ścieżek dźwiękowych, a także użycie wbudowanego metronomu. Aplikacja powstała w celu nauki programowania obiektowego oraz nauki TypeScript, Webpack i preprocesora SASS. Pisząc skupiałem się także na wykorzytaniu właściwości TypeScript jaką jest statyczne typowanie.', langList: [TS_logo, Webpack_logo, SASS_logo], githubLink:'https://github.com/Radek25/DrumKitApp', liveLink:'https://radek25.github.io/DrumKitApp/'},
+    {index: 2, src: CorpoApp, text: 'CorpoApp to jeden z wielu projektów, które wykonałem w trakcie studiów, którego celem była nauka frameworka React. Podczas tworzenia aplikacji poznałem nie tylko Reacta, ale także Redux, TypeScript, Styled-Comonents oraz wiele przydatnych blibliotek wspomnianego wcześniej frameworka.', langList: [React_logo, Redux_logo, TS_logo, StyledComponents_logo], githubLink:'https://github.com/Radek25/ReactApp', liveLink:'https://radek25.github.io/ReactApp/'},
+    {index: 3, src: WeatherApp, text: 'WeatherApp to prosta aplikacja pozwalająca sprawdzić katualną pogodę w danym miejscu na świecie. Tworząc ten projekt nauczyłem się pobierać i wykorzystywać dane z zewnętrznego API, a także wykorzystywać własność localStorage.', langList: [HTML_logo, CSS_logo, JS_logo], githubLink:'https://github.com/Radek25/WeatherApplication', liveLink:'https://radek25.github.io/WeatherApplication/'},
+    {index: 4, src: CVWebside, text: 'CVWebside jest prostą stroną wykonaną na podstawie szablonu. Projekt miał na celu ugruntowanie umiejętności pisania w pełni semantycznego kodu HTML5 oraz wykorzystywanie dobrych praktych podczas tworzenia styli CSS3.', langList: [HTML_logo, CSS_logo], githubLink:'https://github.com/Radek25/CV_Webside', liveLink:'https://radek25.github.io/CV_Webside/'}
 ];
 
 interface ICurrentPage{
     isPageOne: boolean;
-    pageIndex: number
+    pageIndex: number;
+    pageWidth: number;
 }
 
 export const PortfolioPage: FC<ICurrentPage> = (props) => {
@@ -34,6 +35,7 @@ export const PortfolioPage: FC<ICurrentPage> = (props) => {
     let [activeText, setActiveText] = useState('');
     let [activeList, setActiveList] = useState<string[]>(['']);
     let [isModalActive, setActiveModal] = useState(false);
+    let [selectIMG, setSelectIMG] = useState(0);
 
     return(
         <PortfolioPageWrapper isPageOne={props.isPageOne} activeModal={isModalActive}>
@@ -41,22 +43,21 @@ export const PortfolioPage: FC<ICurrentPage> = (props) => {
                 <div className="modal-message">
                     <i className="fas fa-times" onClick={() => setActiveModal(!isModalActive)}></i>
                     <p>{activeText}</p>
-                    <p>Wykorzystane technologie:</p>
                     <span>{activeList.map((lang) => <img src={lang}/>)}</span>
                 </div>
             </div>
             <AppsLogoWrapper isPageOne={props.isPageOne} activeModal={isModalActive}>
             {AppsCollection.map(content => 
-            <div className="app-logo" key={content.index}> 
+            <div className="app-logo" key={content.index} onClick={() => setSelectIMG(content.index)}> 
                 <img src={content.src}/>
-                <div className="app-logo-icons-wrapper">
+                <div className = "app-logo-icons-wrapper" >
                     <i className="fas fa-info-circle" onClick={() => {setActiveModal(!isModalActive); setActiveText(content.text); setActiveList(content.langList);}}></i>
-                    <i className="far fa-play-circle"></i>
-                    <i className="fab fa-github"></i>
+                    <a className={(props.pageWidth <= 1024 ? (selectIMG === content.index ? "show-icon-on-mobile" : "hide-icon-on-mobile") : '')} href={content.liveLink} target="_blank"><i className="far fa-play-circle"></i></a>
+                    <a className={(props.pageWidth <= 1024 ? (selectIMG === content.index ? "show-icon-on-mobile" : "hide-icon-on-mobile") : '')} href={content.githubLink} target="_blank"><i className="fab fa-github"></i></a>
                 </div>
             </div>)}
             </AppsLogoWrapper>
-            <div className="github-btn-wrapper"><button>Przejdź na mój Github</button></div>
+            <div className="github-btn-wrapper"><a href="https://github.com/Radek25" target="_blank"><button>Przejdź na mój Github</button></a></div>
         </PortfolioPageWrapper>
     );
 };

@@ -87,8 +87,8 @@ export const MainPage: FC = () =>{
                     animationTimer={500} 
                     animationTimerBuffer={0}
                 >
-                    <HomePage/>
-                    <PortfolioPage isPageOne={isPageOne} pageIndex={pageIndex}/>
+                    <HomePage setPageIndex={setPageIndex}/>
+                    <PortfolioPage isPageOne={isPageOne} pageIndex={pageIndex} pageWidth={pageWidth}/>
                     <SkillsPage isPageTwo={isPageTwo} pageWidth={pageWidth}/>
                     <ContactPage isPageThree={isPageThree}/>
                 </ReactPageScroller>

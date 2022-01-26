@@ -76,8 +76,8 @@ export const PortfolioPageWrapper = styled.div<IPortfolioPageData>`
                 justify-content: center;
                 align-items: center;
                 img{
-                    width: 15vw; //Zmienić bo na większych urządzenieach to strasznie duże
-                    height: 15vw;
+                    width: 15px;
+                    height: 15px;
                     margin: 0 5px;
                 }
             }
@@ -99,7 +99,13 @@ export const PortfolioPageWrapper = styled.div<IPortfolioPageData>`
                     font-size: 6vw;
                 }
                 p{
-                    font-size: 14px;
+                    font-size: 16px;
+                }
+                span{
+                    img{
+                        width: 40px;
+                        height: 40px;
+                    }
                 }
             }
         }
@@ -123,7 +129,14 @@ export const PortfolioPageWrapper = styled.div<IPortfolioPageData>`
                     font-size: 5.5vw;
                 }
                 p{
-                    font-size: 22px;
+                    font-size: 24px;
+                }
+                span{
+                    img{
+                        width: 70px;
+                        height: 70px;
+                        margin: 0 10px;
+                    }
                 }
             }
         }
@@ -151,7 +164,14 @@ export const PortfolioPageWrapper = styled.div<IPortfolioPageData>`
                     font-size: 4.5vw;
                 }
                 p{
-                    font-size: 24px;
+                    font-size: 28px;
+                }
+                span{
+                    img{
+                        width: 80px;
+                        height: 80px;
+                        margin: 0 10px;
+                    }
                 }
             }
         }
@@ -206,6 +226,15 @@ export const AppsLogoWrapper = styled.div<IPortfolioPageData>`
             position: absolute;
             color: ${colors.mainFontColor} ;
             opacity: 0;
+            a{
+                color: ${colors.mainFontColor};
+            }
+            .hide-icon-on-mobile{
+                display: none;
+            }
+            .show-icon-on-mobile{
+                animation: show-icon 2s 1 1ms both;
+            }
             .fa-info-circle, .fa-play-circle, .fa-github{
                 cursor: pointer;
             }
@@ -233,7 +262,7 @@ export const AppsLogoWrapper = styled.div<IPortfolioPageData>`
             width: 36vw;
             height: 36vw;
             flex-basis: 36vw;
-            .app-logo-icons-wrapper{
+            .app-logo-icons-wrapper, .app-logo-icons-wrapper-moblie{
                 width: 36vw;
                 height: 36vw;
                 padding: 2px 2px 5px;
@@ -302,6 +331,14 @@ export const AppsLogoWrapper = styled.div<IPortfolioPageData>`
         45% {
             transform: scale(1);
             animation-timing-function: ease-out;
+        }
+    }
+    @keyframes show-icon {
+        0% {
+            display: none;
+        }
+        100% {
+            display: flex;
         }
     }
     /*==================*/
