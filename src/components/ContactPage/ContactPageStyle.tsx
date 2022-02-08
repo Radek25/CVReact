@@ -84,6 +84,23 @@ export const ContactPageWrapper = styled.div<IContactWrapperData>`
     .form-submit-input:hover{
         cursor: pointer;
     }
+    .modal-send-msg{
+        width: 200px;
+        padding: 8px 15px;
+        position: absolute;
+        top: -3000px;
+        right: 20px;
+        z-index: 1000;
+        background-color: #5cb85c;
+        color: #ffffff;
+        text-align: center;
+        border-radius: 10px;
+        font-size: 18px;
+        font-weight: 400;
+    }
+    .modal-send-msg.show-modal{
+        animation: slide-in-modal 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
 
     /*========================*/
     /*RWD 0px - 480px - BEGING*/
@@ -101,6 +118,16 @@ export const ContactPageWrapper = styled.div<IContactWrapperData>`
         }
         textarea{
             width: 90vw;
+        }
+
+        .modal-send-msg{
+            width: 55vw;
+            left: 20px;
+            padding: 5px 9px;
+            font-size: 5vw;
+        }
+        .modal-send-msg.show-modal{
+            animation: slide-in-modal-mobile 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
         }
     }
     /*=====================*/
@@ -142,7 +169,16 @@ export const ContactPageWrapper = styled.div<IContactWrapperData>`
             height: 60px;
             font-size: 30px;
         }
-    }
+        
+        .modal-send-msg{
+            width: 40vw;
+            left: 30px;
+            padding: 10px 15px;
+            font-size: 3.5vw;
+        }
+        .modal-send-msg.show-modal{
+            animation: slide-in-modal-mobile 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
     /*========================*/
     /*RWD 481px - 1024px - END*/
     /*========================*/
@@ -240,6 +276,24 @@ export const ContactPageWrapper = styled.div<IContactWrapperData>`
         }
         100% {
             transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    @keyframes slide-in-modal-mobile {
+        0% {
+            opacity: 0.7;
+        }
+        100% {
+            top: 30px;
+            opacity: 1;
+        }
+    }
+    @keyframes slide-in-modal {
+        0% {
+            opacity: 0.7;
+        }
+        100% {
+            top: 60px;
             opacity: 1;
         }
     }

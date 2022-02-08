@@ -22,27 +22,37 @@ export const ContactPage: FC<ICurrentPage> = (props) => {
                 phone,
                 message,
             },
-        });
+        }).then((res) => afterSendMessage(res.status));
     };
+
+    function afterSendMessage(statusOfMessage: number){
+        const sendModal = document.querySelector(".modal-send-msg");
+        if(statusOfMessage === 200){
+            sendModal?.classList.add("show-modal");
+            setTimeout(() => sendModal?.classList.remove("show-modal"), 2200);
+        }
+    }
+
     return(
         <ContactPageWrapper isPageThree={props.isPageThree}>
+            <div className="modal-send-msg">Wiadomość wysłana!</div>
             <span>Napisz do mnie <i className="fas fa-envelope"></i></span>
-            <form autoComplete="off" onSubmit={() => (emailData.name !== '' ? sendEmail : null)}>
+            <form autoComplete="off" onSubmit={sendEmail}>
                 <label htmlFor={'name'}>
-                    <input id="name" onChange={handleState} value={name} className="form-name-input" type='text' name='name' placeholder="Imię"/>
+                    <input id="name" onChange={handleState} value={name} className="form-name-input" type='text' name='name' placeholder="Imię" required/>
                 </label>
                 <div className="form-email-and-tel-input">
                     <label htmlFor="emali">
-                        <input id="email" onChange={handleState} type='email' name='email' placeholder="E-mail"/>
+                        <input id="email" onChange={handleState} type='email' name='email' placeholder="E-mail" required/>
                     </label>
                     <label htmlFor="phone">
-                        <input id="phone" onChange={handleState} type='tel' name='tel' placeholder="Phone"/>
+                        <input id="phone" onChange={handleState} type='tel' name='tel' placeholder="Phone" required/>
                     </label>
                 </div>
                 <label htmlFor="message">
                     <textarea id="message" onChange={handleState} name='message' placeholder="Message"/>
                 </label>
-                <input className="form-submit-input" type="submit" value="Wyślij" />
+                <input className="form-submit-input" type="submit" value="Wyślij"/>
             </form>
         </ContactPageWrapper>
     );
