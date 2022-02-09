@@ -8,6 +8,7 @@ import { ContactPage } from "../ContactPage/ContactPage";
 import { SocialMedia } from "../common/SocialMedia/SocialMedia";
 import ReactPageScroller from 'react-page-scroller';
 
+
 import CodeCat from '../imgs/codeCat.gif'
 
 export const navOptions = [
