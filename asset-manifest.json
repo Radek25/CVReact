@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.js": "/CVReact/static/js/main.18cc0c33.chunk.js",
+    "main.js.map": "/CVReact/static/js/main.18cc0c33.chunk.js.map",
+    "runtime-main.js": "/CVReact/static/js/runtime-main.2cd66150.js",
+    "runtime-main.js.map": "/CVReact/static/js/runtime-main.2cd66150.js.map",
+    "static/js/2.16cf843b.chunk.js": "/CVReact/static/js/2.16cf843b.chunk.js",
+    "static/js/2.16cf843b.chunk.js.map": "/CVReact/static/js/2.16cf843b.chunk.js.map",
+    "index.html": "/CVReact/index.html",
+    "static/js/2.16cf843b.chunk.js.LICENSE.txt": "/CVReact/static/js/2.16cf843b.chunk.js.LICENSE.txt",
+    "static/media/CSS-logo.8aeb3b78.png": "/CVReact/static/media/CSS-logo.8aeb3b78.png",
+    "static/media/CSharp-logo.c7665304.png": "/CVReact/static/media/CSharp-logo.c7665304.png",
+    "static/media/CVWebsideLogo.b22e8a0c.png": "/CVReact/static/media/CVWebsideLogo.b22e8a0c.png",
+    "static/media/CorpoAppLogo.7c4ebab2.png": "/CVReact/static/media/CorpoAppLogo.7c4ebab2.png",
+    "static/media/DrumKitLogo.e66b75fb.png": "/CVReact/static/media/DrumKitLogo.e66b75fb.png",
+    "static/media/JS-logo.fbfba7f7.png": "/CVReact/static/media/JS-logo.fbfba7f7.png",
+    "static/media/SASS-logo.35337c12.png": "/CVReact/static/media/SASS-logo.35337c12.png",
+    "static/media/TS-logo.2d0a0c3d.png": "/CVReact/static/media/TS-logo.2d0a0c3d.png",
+    "static/media/WeatherAppLogo.3198175e.png": "/CVReact/static/media/WeatherAppLogo.3198175e.png",
+    "static/media/codeCat.6bff444d.gif": "/CVReact/static/media/codeCat.6bff444d.gif",
+    "static/media/myPhoto.5065c6e3.png": "/CVReact/static/media/myPhoto.5065c6e3.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2cd66150.js",
+    "static/js/2.16cf843b.chunk.js",
+    "static/js/main.18cc0c33.chunk.js"
+  ]
+}
