@@ -43,21 +43,21 @@ export const PortfolioPage: FC<ICurrentPage> = (props) => {
                 <div className="modal-message">
                     <i className="fas fa-times" onClick={() => setActiveModal(!isModalActive)}></i>
                     <p>{activeText}</p>
-                    <span>{activeList.map((lang) => <img src={lang}/>)}</span>
+                    <span>{activeList.map((lang) => <img key={lang} src={lang} alt="Icon of code language"/>)}</span>
                 </div>
             </div>
             <AppsLogoWrapper isPageOne={props.isPageOne} activeModal={isModalActive}>
             {AppsCollection.map(content => 
             <div className="app-logo" key={content.index} onClick={() => setSelectIMG(content.index)}> 
-                <img src={content.src}/>
+                <img src={content.src} alt="Logo of app"/>
                 <div className = "app-logo-icons-wrapper" >
                     <i className="fas fa-info-circle" onClick={() => {setActiveModal(!isModalActive); setActiveText(content.text); setActiveList(content.langList);}}></i>
-                    <a className={(props.pageWidth <= 1024 ? (selectIMG === content.index ? "show-icon-on-mobile" : "hide-icon-on-mobile") : '')} href={content.liveLink} target="_blank"><i className="far fa-play-circle"></i></a>
-                    <a className={(props.pageWidth <= 1024 ? (selectIMG === content.index ? "show-icon-on-mobile" : "hide-icon-on-mobile") : '')} href={content.githubLink} target="_blank"><i className="fab fa-github"></i></a>
+                    <a className={(props.pageWidth <= 1024 ? (selectIMG === content.index ? "show-icon-on-mobile" : "hide-icon-on-mobile") : '')} href={content.liveLink} target="_blank" rel="noreferrer"><i className="far fa-play-circle"></i></a>
+                    <a className={(props.pageWidth <= 1024 ? (selectIMG === content.index ? "show-icon-on-mobile" : "hide-icon-on-mobile") : '')} href={content.githubLink} target="_blank" rel="noreferrer"><i className="fab fa-github"></i></a>
                 </div>
             </div>)}
             </AppsLogoWrapper>
-            <div className="github-btn-wrapper"><a href="https://github.com/Radek25" target="_blank"><button>Przejdź na mój Github</button></a></div>
+            <div className="github-btn-wrapper"><a href="https://github.com/Radek25" target="_blank" rel="noreferrer"><button>Przejdź na mój Github</button></a></div>
         </PortfolioPageWrapper>
     );
 };

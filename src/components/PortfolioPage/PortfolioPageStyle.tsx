@@ -76,8 +76,8 @@ export const PortfolioPageWrapper = styled.div<IPortfolioPageData>`
                 justify-content: center;
                 align-items: center;
                 img{
-                    width: 15px;
-                    height: 15px;
+                    width: 55px;
+                    height: 55px;
                     margin: 0 5px;
                 }
             }

@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import { DotsListWrapper } from "./DotsListStyle";
 import { navOptions } from './../../MainPage/MainPage';
 interface IPageNumber{

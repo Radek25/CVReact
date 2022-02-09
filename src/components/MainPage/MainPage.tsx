@@ -72,13 +72,13 @@ export const MainPage: FC = () =>{
                 <ReactPageScroller 
                     onBeforePageScroll={(pageIndex) => {
                         setPageIndex(pageIndex); 
-                        if(pageIndex == 1){
+                        if(pageIndex === 1){
                             setViewPageOne(true)
                         }
-                        else if(pageIndex == 2){
+                        else if(pageIndex === 2){
                             setViewPageTwo(true)
                         }
-                        else if(pageIndex == 3){
+                        else if(pageIndex === 3){
                             setViewPageThree(true)
                         }
                     }} 

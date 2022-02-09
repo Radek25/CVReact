@@ -50,7 +50,7 @@ export const SkillsPage: FC<ICurrentPage> = (props) => {
             transition="1s ease 0.4s"
             trackTransition="0s ease">
             <CountUp className="percentWrapper" duration={1.2} end={SkillsData.progress} suffix="%"/>
-            <img src={SkillsData.img}/>
+            <img src={SkillsData.img} alt="Icon of code language"/>
             <span className="nameWrapper">{SkillsData.name}</span>
         </ProgressBar>
         )}
