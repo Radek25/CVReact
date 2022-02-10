@@ -79,7 +79,7 @@ export const ContactPageWrapper = styled.div<IContactWrapperData>`
         width: 32vw;
         animation-name: ${(props) => props.isPageThree === true ? slideInLeft : 'none'};
         animation-duration: 0.5s;
-        animation-delay: 0s;
+        animation-delay: 0.31s;
         animation-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
         animation-fill-mode: both;
     }
