@@ -1,11 +1,20 @@
 import styled from "styled-components";
 import { colors } from "../../styledHelpers/colors";
 import { widths } from "../../styledHelpers/widths";
+import {keyframes} from 'styled-components';
 
 interface IContactWrapperData{
     isPageThree: boolean;
 }
 
+const slideInLeft = keyframes`
+    0% {transform: translateX(-1000px);opacity: 0;}
+    100% {transform: translateX(0);opacity: 1;}
+`
+const slideInRight = keyframes`
+    0% {transform: translateX(1000px);opacity: 0;}
+    100% {transform: translateX(0);opacity: 1;}
+`
 
 export const ContactPageWrapper = styled.div<IContactWrapperData>`
     width: 100%;
@@ -56,13 +65,19 @@ export const ContactPageWrapper = styled.div<IContactWrapperData>`
     }
     .form-name-input{
         width: 32vw;
-        ${(props) => props.isPageThree === true ? 'animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.31s both' : 'none'};
+        animation-name: ${(props) => props.isPageThree === true ? slideInLeft : 'none'};
+        animation-duration: 0.5s;
+        animation-delay: 0.31s;
+        animation-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
     }
     .form-email-and-tel-input{
         width: 32vw;
         display: flex;
         justify-content: space-between;
-        ${(props) => props.isPageThree === true ? 'animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.32s both' : 'none'};
+        animation-name: ${(props) => props.isPageThree === true ? slideInRight : 'none'};
+        animation-duration: 0.5s;
+        animation-delay: 0.32s;
+        animation-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
         input{
             width: 15vw;
         }
@@ -71,7 +86,10 @@ export const ContactPageWrapper = styled.div<IContactWrapperData>`
         width: 32vw;
         height: 20vh;
         resize: none;
-        ${(props) => props.isPageThree === true ? 'animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.33s both' : 'none'};
+        animation-name: ${(props) => props.isPageThree === true ? slideInLeft : 'none'};
+        animation-duration: 0.5s;
+        animation-delay: 0.33s;
+        animation-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
     }
     .form-submit-input{
         width: 120px;
