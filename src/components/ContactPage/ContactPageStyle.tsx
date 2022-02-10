@@ -15,6 +15,15 @@ const slideInRight = keyframes`
     0% {transform: translateX(1000px);opacity: 0;}
     100% {transform: translateX(0);opacity: 1;}
 `
+const jelly = keyframes`
+    0% {transform: scale3d(1, 1, 1);}
+    30% {transform: scale3d(1.25, 0.75, 1);}
+    40% {transform: scale3d(0.75, 1.25, 1);}
+    50% {transform: scale3d(1.15, 0.85, 1);}
+    65% {transform: scale3d(0.95, 1.05, 1);}
+    75% {transform: scale3d(1.05, 0.95, 1);}
+    100% {transform: scale3d(1, 1, 1);}
+`
 
 export const ContactPageWrapper = styled.div<IContactWrapperData>`
     width: 100%;
@@ -36,7 +45,10 @@ export const ContactPageWrapper = styled.div<IContactWrapperData>`
         ${(props) => props.isPageThree === true ? ('animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) 0.3s both') : 'none'};
         i{
             margin: 0 10px;
-            ${(props) => props.isPageThree === true ? 'animation: jello-horizontal 0.9s 1.2s both' : 'none'};
+            animation-name: ${(props) => props.isPageThree === true ? jelly : 'none'};
+            animation-duration: 0.9s;
+            animation-delay: 1.2s;
+            animation-fill-mode: both;
         }
     }
     form{
@@ -67,8 +79,9 @@ export const ContactPageWrapper = styled.div<IContactWrapperData>`
         width: 32vw;
         animation-name: ${(props) => props.isPageThree === true ? slideInLeft : 'none'};
         animation-duration: 0.5s;
-        animation-delay: 0.31s;
+        animation-delay: 0s;
         animation-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+        animation-fill-mode: both;
     }
     .form-email-and-tel-input{
         width: 32vw;
@@ -78,6 +91,7 @@ export const ContactPageWrapper = styled.div<IContactWrapperData>`
         animation-duration: 0.5s;
         animation-delay: 0.32s;
         animation-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+        animation-fill-mode: both;
         input{
             width: 15vw;
         }
@@ -90,6 +104,7 @@ export const ContactPageWrapper = styled.div<IContactWrapperData>`
         animation-duration: 0.5s;
         animation-delay: 0.33s;
         animation-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+        animation-fill-mode: both;
     }
     .form-submit-input{
         width: 120px;
